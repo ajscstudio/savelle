@@ -1,767 +1,1260 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAVÉLLE | Alta Costura & Lujo Sensual</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --champagne-light: #FBF8F3;
-            --champagne-base: #F3EBDD;
-            --champagne-gold: #D4B886;
-            --champagne-dark: #A88B57;
-            --text-dark: #1C1917;
-            --text-muted: #78716C;
-            --white: #FFFFFF;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--champagne-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, .serif {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- ANNOUNCEMENT BAR --- */
-        .announcement-bar {
-            background-color: var(--text-dark);
-            color: var(--champagne-base);
-            text-align: center;
-            padding: 8px 16px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* --- HEADER & NAV --- */
-        header {
-            position: sticky;
-            top: 0;
-            background-color: rgba(251, 248, 243, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(212, 184, 134, 0.2);
-        }
-
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 24px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--champagne-dark);
-        }
-
-        .logo {
-            font-size: 2.4rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background-color: var(--champagne-gold);
-            color: var(--white);
-            font-size: 0.65rem;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 85vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), 
-                        url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 24px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        .hero p {
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 36px;
-            background-color: var(--champagne-gold);
-            color: var(--white);
-            border: 1px solid var(--champagne-gold);
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--white);
-            border-color: var(--white);
-        }
-
-        .btn-dark {
-            background-color: var(--text-dark);
-            border-color: var(--text-dark);
-            color: var(--white);
-        }
-
-        .btn-dark:hover {
-            background-color: var(--champagne-dark);
-            border-color: var(--champagne-dark);
-        }
-
-        /* --- SECTION LAYOUT --- */
-        section {
-            padding: 100px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--champagne-dark);
-            margin-bottom: 60px;
-        }
-
-        /* --- ABOUT & FOUNDERS --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .founders-box {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid var(--champagne-base);
-            display: flex;
-            gap: 40px;
-        }
-
-        .founder-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--champagne-dark);
-        }
-
-        /* --- COLLECTION GRID --- */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background-color: var(--white);
-            border: 1px solid rgba(243, 235, 221, 0.6);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-        }
-
-        .product-img-wrapper {
-            position: relative;
-            height: 420px;
-            overflow: hidden;
-            background-color: #F8F5F0;
-        }
-
-        .product-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-img-wrapper img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 24px;
-            text-align: center;
-        }
-
-        .product-tag {
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--champagne-dark);
-            margin-bottom: 8px;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        .product-price {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-        }
-
-        .add-cart-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--champagne-light);
-            border: 1px solid var(--champagne-base);
-            color: var(--text-dark);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .add-cart-btn:hover {
-            background-color: var(--champagne-gold);
-            color: var(--white);
-            border-color: var(--champagne-gold);
-        }
-
-        /* --- MADE IN BARRANQUILLA BANNER --- */
-        .banner-barranquilla {
-            background-color: var(--champagne-base);
-            padding: 80px 24px;
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .banner-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stamp {
-            display: inline-block;
-            border: 2px solid var(--champagne-dark);
-            padding: 8px 24px;
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--champagne-dark);
-            margin-bottom: 24px;
-        }
-
-        /* --- CONTACT & VIRTUAL STORE --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            background-color: var(--white);
-            padding: 60px;
-            border: 1px solid var(--champagne-base);
-        }
-
-        .contact-info h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-details {
-            margin-top: 30px;
-            list-style: none;
-        }
-
-        .contact-details li {
-            margin-bottom: 16px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .contact-details strong {
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid var(--champagne-base);
-            background-color: var(--champagne-light);
-            font-family: inherit;
-            font-size: 0.85rem;
-            outline: none;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--champagne-gold);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--text-dark);
-            color: var(--champagne-base);
-            padding: 60px 24px 30px;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 2.5rem;
-            letter-spacing: 6px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            list-style: none;
-            margin-bottom: 40px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .copyright {
-            font-size: 0.75rem;
-            color: #A8A29E;
-            border-top: 1px solid #292524;
-            padding-top: 30px;
-        }
-
-        /* --- SIDE CART --- */
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 380px;
-            height: 100vh;
-            background-color: var(--white);
-            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-drawer.active {
-            right: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--champagne-base);
-        }
-
-        .close-cart {
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .cart-items {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin: 20px 0;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-
-        .cart-item img {
-            width: 60px;
-            height: 80px;
-            object-fit: cover;
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--champagne-base);
-            padding-top: 20px;
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .about-grid, .contact-container { grid-template-columns: 1fr; gap: 40px; }
-            .hero h1 { font-size: 2.8rem; }
-            .contact-container { padding: 30px; }
-            .cart-drawer { width: 100%; right: -100%; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAVÉLLE | Luxury Boutique</title>
+  <!-- Google Fonts luxury setup -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-light: #fcfbfa;
+      --bg-champagne: #f4efe9;
+      --text-dark: #1c1c1c;
+      --text-muted: #666666;
+      --accent-gold: #c5a059;
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    /* HEADER MINIMALISTA */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: rgba(252, 251, 250, 0.95);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 5px;
+    }
+    .menu-btn span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background-color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    .cart-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--text-dark);
+      fill: none;
+      stroke-width: 1.2;
+    }
+    .cart-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0.65rem;
+      font-weight: 400;
+      background: var(--text-dark);
+      color: #fff;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* NAVIGATION DRAWER */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1100;
+    }
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 85%;
+      max-width: 380px;
+      height: 100%;
+      background: var(--bg-champagne);
+      z-index: 1200;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 40px 30px;
+      overflow-y: auto;
+    }
+    .drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+      font-weight: 300;
+    }
+
+    .drawer-top-links {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+    .drawer-top-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sub-panel {
+      display: none;
+    }
+    .sub-panel.active {
+      display: block;
+    }
+
+    .drawer-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .back-btn {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      cursor: pointer;
+      letter-spacing: 2px;
+    }
+
+    /* HERO CAROUSEL */
+    .hero-section {
+      margin-top: 70px;
+      position: relative;
+      width: 100%;
+      height: 75vh;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.4s ease-out;
+      cursor: grab;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: #ffffff;
+      transform: scale(1.2);
+    }
+
+    /* ABOUT BRAND */
+    .about-section {
+      padding: 70px 8% 50px;
+      text-align: center;
+      background: var(--bg-light);
+    }
+    .brand-symbol {
+      width: 35px;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+    .about-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .about-text {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-weight: 300;
+    }
+    .learn-more-btn {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-dark);
+      padding-bottom: 4px;
+      display: inline-block;
+    }
+
+    /* PRODUCT COLLECTION */
+    .collection-section {
+      padding: 40px 5% 70px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 30px 20px;
+    }
+    .product-card {
+      text-align: center;
+      cursor: pointer;
+    }
+    .product-img-wrapper {
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      margin-bottom: 15px;
+      background: #f0ece7;
+      position: relative;
+    }
+    .product-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+    .product-name {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+    .product-price {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .add-to-cart-btn {
+      background: transparent;
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+      padding: 8px 16px;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .add-to-cart-btn:hover {
+      background: var(--text-dark);
+      color: #fff;
+    }
+
+    /* PRODUCT DETAIL VIEW MODAL */
+    .product-detail-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-light);
+      z-index: 1500;
+      overflow-y: auto;
+      display: none;
+      padding: 40px 8%;
+    }
+    .product-detail-modal.active {
+      display: block;
+    }
+    .detail-close {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+    .detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+      align-items: start;
+    }
+    @media(max-width: 768px) {
+      .detail-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+    .detail-img-box {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #f0ece7;
+    }
+    .detail-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-info h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .detail-price {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .detail-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .detail-section-title {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
+    .size-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .size-btn {
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1px solid #ccc;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .size-btn.selected {
+      border-color: var(--text-dark);
+      background: var(--text-dark);
+      color: #fff;
+    }
+    .size-guide-box {
+      background: var(--bg-champagne);
+      padding: 15px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .detail-add-btn {
+      width: 100%;
+      background: var(--text-dark);
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .detail-add-btn:hover {
+      opacity: 0.85;
+    }
+
+    /* MADE IN BARRANQUILLA */
+    .origin-section {
+      padding: 70px 8%;
+      background: var(--bg-champagne);
+      text-align: center;
+    }
+    .origin-map {
+      width: 120px;
+      margin: 0 auto 25px;
+      display: block;
+      opacity: 0.75;
+    }
+    .origin-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-light);
+      padding: 60px 8% 30px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .footer-top {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.3s ease;
+    }
+    .footer-col a:hover {
+      color: var(--text-dark);
+    }
+    .newsletter-input {
+      display: flex;
+      margin-top: 15px;
+    }
+    .newsletter-input input {
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 0.8rem;
+      width: 100%;
+      background: transparent;
+      outline: none;
+    }
+    .newsletter-input button {
+      background: var(--bg-champagne);
+      border: 1px solid #ccc;
+      border-left: none;
+      padding: 10px 15px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* CART SLIDE MODAL */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background: var(--bg-light);
+      z-index: 1600;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.05);
+    }
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 0;
+    }
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .cart-item img {
+      width: 60px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-footer {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 20px;
+    }
+    .cart-input-group {
+      margin-bottom: 15px;
+    }
+    .cart-input-group label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .cart-input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      font-size: 0.85rem;
+      background: transparent;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: var(--text-dark);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+      background: var(--bg-champagne);
+      border: 1px solid var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      z-index: 999;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+    }
+    .whatsapp-float svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--text-dark);
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast-msg {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--text-dark);
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 2000;
+    }
+    .toast-msg.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-    <!-- ANNOUNCEMENT BAR -->
-    <div class="announcement-bar">
-        Envíos Nacionales e Internacionales • Boutique Virtual Exclusiva
+  <!-- HEADER -->
+  <header>
+    <button class="menu-btn" id="openMenuBtn" aria-label="Abrir Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <a href="#" class="brand-logo">SAVÉLLE</a>
+    
+    <button class="cart-btn" id="openCartBtn" aria-label="Ver Carrito">
+      <svg viewBox="0 0 24 24">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <!-- DRAWER OVERLAY -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- NAVIGATION DRAWER -->
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <span class="brand-logo" style="font-size: 1.3rem;">SAVÉLLE</span>
+      <button class="drawer-close" id="closeMenuBtn">&times;</button>
     </div>
 
-    <!-- HEADER / NAVIGATION -->
-    <header>
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="#coleccion">Colección</a></li>
-                <li><a href="#historia">Nosotras</a></li>
-                <li><a href="#origen">Origen</a></li>
-            </ul>
-            
-            <a href="#" class="logo serif">SAVÉLLE</a>
-
-            <div class="nav-icons">
-                <a href="#contacto" style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Contacto</a>
-                <div class="cart-icon" onclick="toggleCart()">
-                    🛍️ <span class="cart-count" id="cartCount">0</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <div class="hero">
-        <div class="hero-content">
-            <p>SAVÉLLE • Alta Costura & Elegancia Atemporal</p>
-            <h1 class="serif">El Lujo de la Comodidad y la Seducción</h1>
-            <a href="#coleccion" class="btn">Explorar Colección</a>
-        </div>
+    <div class="drawer-top-links">
+      <a href="#" onclick="showToast('Buscador activado')">BUSCAR</a>
+      <a href="#" onclick="showToast('Área de cliente en mantenimiento')">VER CUENTA</a>
     </div>
 
-    <!-- ABOUT / FOUNDERS SECTION -->
-    <section id="historia">
-        <div class="about-grid">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Fundadoras SAVÉLLE">
-            </div>
-            <div class="about-text">
-                <span class="section-subtitle" style="text-align: left; margin-bottom: 10px; display: block;">NUESTRA HISTORIA</span>
-                <h3 class="serif">SAVÉLLE: Una visión compartida de belleza, comodidad y lujo sensual.</h3>
-                <p><strong>SAVÉLLE</strong> nace de la unión creativa y refinada de dos visiones apasionadas por la moda de lujo: <strong>Michel Piñeres</strong> e <strong>Isabella Venegas</strong>.</p>
-                <p>Diseñamos para la mujer contemporánea que no compromete la comodidad por el glamour. Cada pieza SAVÉLLE está concebida para elevar la feminidad, combinando la frescura del lino de alta calidad con la delicadeza y seducción de encajes exclusivos.</p>
-                
-                <div class="founders-box">
-                    <div>
-                        <div class="founder-name serif">Michel Piñeres</div>
-                        <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Cofundadora</span>
-                    </div>
-                    <div>
-                        <div class="founder-name serif">Isabella Venegas</div>
-                        <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Cofundadora</span>
-                    </div>
-                </div>
-            </div>
+    <div class="drawer-nav">
+      <!-- MAIN PANEL -->
+      <div class="nav-panel" id="mainNavPanel">
+        <div class="drawer-item" id="openShopBtn">
+          <span>COMPRAR</span>
+          <span>&rsaquo;</span>
         </div>
-    </section>
+        <a href="#about" class="drawer-item" onclick="closeDrawer()">NUESTRA HISTORIA</a>
+        <a href="#origin" class="drawer-item" onclick="closeDrawer()">HECHO EN BARRANQUILLA</a>
+        <a href="#footer" class="drawer-item" onclick="closeDrawer()">CONTACTO</a>
+      </div>
 
-    <!-- COLLECTION SECTION -->
-    <section id="coleccion">
-        <h2 class="section-title serif">Colección SAVÉLLE</h2>
-        <p class="section-subtitle">Lino Puro • Encajes Sensuales • Siluetas Juveniles</p>
-
-        <div class="products-grid">
-            <!-- Producto 1 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop" alt="Vestido Lino Champagne">
-                </div>
-                <div class="product-info">
-                    <div class="product-tag">Lino & Encaje</div>
-                    <h3 class="product-title serif">Vestido Lino Seducción</h3>
-                    <div class="product-price">$320.000 COP</div>
-                    <button class="add-cart-btn" onclick="addToCart('Vestido Lino Seducción', 320000, 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop')">Añadir a la Bolsa</button>
-                </div>
-            </div>
-
-            <!-- Producto 2 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop" alt="Conjunto Seda y Encaje">
-                </div>
-                <div class="product-info">
-                    <div class="product-tag">Encaje Francés</div>
-                    <h3 class="product-title serif">Conjunto Champagne Sensual</h3>
-                    <div class="product-price">$280.000 COP</div>
-                    <button class="add-cart-btn" onclick="addToCart('Conjunto Champagne Sensual', 280000, 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop')">Añadir a la Bolsa</button>
-                </div>
-            </div>
-
-            <!-- Producto 3 -->
-            <div class="product-card">
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop" alt="Maxi Vestido Fresco">
-                </div>
-                <div class="product-info">
-                    <div class="product-tag">Lino 100% Orgánico</div>
-                    <h3 class="product-title serif">Maxi Vestido Brisa Dorada</h3>
-                    <div class="product-price">$390.000 COP</div>
-                    <button class="add-cart-btn" onclick="addToCart('Maxi Vestido Brisa Dorada', 390000, 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop')">Añadir a la Bolsa</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MADE IN BARRANQUILLA BANNER -->
-    <div class="banner-barranquilla" id="origen">
-        <div class="banner-container">
-            <span class="stamp">Hecho en Barranquilla</span>
-            <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 16px;">Sello SAVÉLLE • Artesanía Caribeña</h2>
-            <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 0.95rem;">
-                Cada prenda SAVÉLLE es confeccionada cuidadosamente en Barranquilla, impulsando la mano de obra experta local y garantizando acabados impecables bajo el concepto de *Slow Fashion*.
-            </p>
-        </div>
+      <!-- SUB PANEL COMPRAR -->
+      <div class="sub-panel" id="shopSubPanel">
+        <span class="back-btn" id="backToMenuBtn">&lsaquo; ATRÁS</span>
+        <div class="drawer-item" onclick="filterCategory('Vestidos')">VESTIDOS</div>
+        <div class="drawer-item" onclick="filterCategory('Faldas')">FALDAS</div>
+        <div class="drawer-item" onclick="filterCategory('Crop-tops')">CROP-TOPS</div>
+        <div class="drawer-item" onclick="filterCategory('Pantalones')">PANTALONES</div>
+        <div class="drawer-item" onclick="filterCategory('Shorts')">SHORTS</div>
+        <div class="drawer-item" onclick="filterCategory('Blusas')">BLUSAS</div>
+        <div class="drawer-item" onclick="filterCategory('Accesorios')">ACCESORIOS</div>
+      </div>
     </div>
+  </div>
 
-    <!-- VIRTUAL ATELIER & CONTACT -->
-    <section id="contacto">
-        <div class="contact-container">
-            <div class="contact-info">
-                <span class="section-subtitle" style="text-align: left; margin-bottom: 10px; display: block;">Atelier Virtual</span>
-                <h3 class="serif">Atención Personalizada SAVÉLLE</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">
-                    Ofrecemos una experiencia boutique 100% digital. Escríbenos para recibir asesoría personalizada sobre tallas y pedidos especiales.
-                </p>
+  <!-- HERO CAROUSEL -->
+  <section class="hero-section">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 1">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 2">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 3">
+      </div>
+    </div>
+    <div class="carousel-dots" id="carouselDots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </section>
 
-                <ul class="contact-details">
-                    <li><strong>Boutique:</strong> Tienda Virtual Exclusiva</li>
-                    <li><strong>Origen:</strong> Barranquilla, Colombia</li>
-                    <li><strong>Correo:</strong> contacto@savelle.com (Provisorio)</li>
-                    <li><strong>Atención WhatsApp:</strong> +57 (300) 000-0000 (Provisorio)</li>
-                </ul>
-            </div>
+  <!-- ABOUT BRAND SECTION -->
+  <section class="about-section" id="about">
+    <svg class="brand-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="50" cy="50" r="40" stroke="#c5a059"/>
+      <path d="M35 50 Q 50 30, 65 50 Q 50 70, 35 50" fill="#c5a059" opacity="0.3"/>
+    </svg>
+    <h2 class="about-title">Sobre la marca</h2>
+    <p class="about-text">
+      SAVÉLLE es una firma de moda de lujo concebida en Barranquilla por Michel Piñeres e Isabella Venegas. Nuestra visión rinde homenaje a la elegancia femenina atemporal mediante prendas minuciosamente confeccionadas, tejidos selectos y siluetas contemporáneas pensadas para trascender estaciones.
+    </p>
+    <a href="#collection" class="learn-more-btn">DESCUBRIR COLECCIÓN</a>
+  </section>
 
-            <div>
-                <form onsubmit="event.preventDefault(); alert('Gracias por contactar a SAVÉLLE. Te responderemos muy pronto.');">
-                    <div class="form-group">
-                        <input type="text" placeholder="Nombre Completo" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Correo Electrónico" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="4" placeholder="¿En qué prenda o asesoría estás interesada?" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark" style="width: 100%;">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
+  <!-- COLLECTION SECTION -->
+  <section class="collection-section" id="collection">
+    <div class="section-header">
+      <h2 class="section-title" id="catalogTitle">COLECCIÓN</h2>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo serif">SAVÉLLE</div>
-        <ul class="footer-links">
-            <li><a href="#coleccion">Colección</a></li>
-            <li><a href="#historia">Fundadoras</a></li>
-            <li><a href="#origen">Hecho en Barranquilla</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+  <!-- PRODUCT DETAIL MODAL VIEW -->
+  <div class="product-detail-modal" id="productDetailModal">
+    <button class="detail-close" onclick="closeProductDetail()">&times;</button>
+    <div class="detail-container" id="detailContainer">
+      <!-- Se inyecta dinámicamente -->
+    </div>
+  </div>
+
+  <!-- MADE IN BARRANQUILLA SECTION -->
+  <section class="origin-section" id="origin">
+    <svg class="origin-map" viewBox="0 0 100 120" fill="none" stroke="#c5a059" stroke-width="1.5">
+      <path d="M30 10 C 50 5, 70 15, 85 35 C 95 55, 75 80, 50 110 C 25 80, 5 55, 15 35 Z" fill="#f4efe9"/>
+    </svg>
+    <h2 class="origin-title">Hecho en Barranquilla</h2>
+    <p class="about-text">
+      Creemos firmemente en el poder del diseño artesanal local y el liderazgo femenino. Cada pieza de SAVÉLLE es producida localmente bajo los más estrictos estándares de *slow fashion*, valorando la suprema calidad de cada costura por encima de la producción masiva.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-top">
+      <span class="brand-logo" style="font-size: 1.6rem;">SAVÉLLE</span>
+    </div>
+    
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Servicio al Cliente</h4>
+        <ul>
+          <li><a href="#" onclick="openWhatsAppDirect()">Contáctanos</a></li>
+          <li><a href="#" onclick="showToast('Política de cambios: 30 días')">Devoluciones</a></li>
+          <li><a href="#" onclick="showToast('Envíos nacionales e internacionales')">Envíos</a></li>
         </ul>
-        <div class="copyright">
-            © 2026 SAVÉLLE. Todos los derechos reservados. Fundada por Michel Piñeres e Isabella Venegas. Hecho en Barranquilla.
-        </div>
-    </footer>
+      </div>
 
-    <!-- CARRITO LATERAL (DRAWER) -->
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h3 class="serif" style="font-size: 1.5rem;">Tu Bolsa SAVÉLLE</h3>
-            <span class="close-cart" onclick="toggleCart()">&times;</span>
+      <div class="footer-col">
+        <h4>Compañía</h4>
+        <ul>
+          <li><a href="#about">Nuestra Historia</a></li>
+          <li><a href="#collection">Lookbook</a></li>
+          <li><a href="#" onclick="showToast('Términos & Privacidad SAVÉLLE')">Privacidad & Términos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suscríbete</h4>
+        <p style="font-size: 0.8rem; color: var(--text-muted);">Recibe novedades exclusivas sobre nuestros próximos lanzamientos.</p>
+        <div class="newsletter-input">
+          <input type="email" placeholder="Tu correo electrónico">
+          <button onclick="showToast('Gracias por suscribirte')">ENVIAR</button>
         </div>
-        <div class="cart-items" id="cartItems">
-            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-top: 40px;">Tu bolsa está vacía.</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <strong id="cartTotal">$0 COP</strong>
-            </div>
-            <button class="btn btn-dark" style="width: 100%;" onclick="checkoutWhatsApp()">Finalizar por WhatsApp</button>
-        </div>
+      </div>
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        let cart = [];
+    <div class="footer-bottom">
+      <span>&copy; 2026 SAVÉLLE&trade;</span>
+      <span>CRÉDITOS DEL SITIO</span>
+      <span>HECHO EN BARRANQUILLA</span>
+    </div>
+  </footer>
 
-        function toggleCart() {
-            document.getElementById('cartDrawer').classList.toggle('active');
-        }
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 400;">Bolsa de Compras</h3>
+      <button class="drawer-close" id="closeCartBtn">&times;</button>
+    </div>
 
-        function addToCart(name, price, img) {
-            cart.push({ name, price, img });
-            updateCartUI();
-            toggleCart();
-        }
+    <div class="cart-items" id="cartItems"></div>
 
-        function updateCartUI() {
-            const cartCount = document.getElementById('cartCount');
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
+    <div class="cart-footer">
+      <div class="cart-input-group">
+        <label for="clientName">Nombre y Apellido *</label>
+        <input type="text" id="clientName" placeholder="Tu nombre completo" required>
+      </div>
 
-            cartCount.innerText = cart.length;
+      <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.9rem;">
+        <span>Total:</span>
+        <span id="cartTotal" style="font-weight: 500;">$0 COP</span>
+      </div>
 
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-top: 40px;">Tu bolsa está vacía.</p>';
-                cartTotal.innerText = '$0 COP';
-                return;
-            }
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">COMPRAR VÍA WHATSAPP</button>
+    </div>
+  </div>
 
-            let html = '';
-            let total = 0;
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <div class="whatsapp-float" onclick="openWhatsAppDirect()" title="Atención personalizada">
+    <svg viewBox="0 0 24 24">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+  </div>
 
-            cart.forEach((item, index) => {
-                total += item.price;
-                html += `
-                    <div class="cart-item">
-                        <img src="${item.img}" alt="${item.name}">
-                        <div>
-                            <h4 class="serif" style="font-size: 1.1rem;">${item.name}</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">$${item.price.toLocaleString('es-CO')} COP</p>
-                            <span style="font-size: 0.75rem; color: red; cursor: pointer;" onclick="removeFromCart(${index})">Eliminar</span>
-                        </div>
-                    </div>
-                `;
-            });
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-msg" id="toastMsg">Artículo agregado al carrito</div>
 
-            cartItems.innerHTML = html;
-            cartTotal.innerText = `$${total.toLocaleString('es-CO')} COP`;
-        }
+  <script>
+    // DATOS DE PRODUCTOS CON DETALLES Y MATERIALES
+    const products = [
+      { 
+        id: 1, 
+        name: "Vestido Lino Champagne", 
+        category: "Vestidos", 
+        price: 280000, 
+        img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",
+        description: "Vestido largo de silueta fluida confeccionado artesanalmente, ideal para climas cálidos con un toque sofisticado.",
+        materials: "100% Lino europeo de alta pureza."
+      },
+      { 
+        id: 2, 
+        name: "Falda Midi Lujo", 
+        category: "Faldas", 
+        price: 190000, 
+        img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80",
+        description: "Falda midi con caída impecable y estructura sutil que realza la figura con absoluta elegancia.",
+        materials: "Mezcla de lino y viscosa premium."
+      },
+      { 
+        id: 3, 
+        name: "Crop-Top Seda Marfil", 
+        category: "Crop-tops", 
+        price: 140000, 
+        img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80",
+        description: "Diseño minimalista de líneas limpias, perfecto para combinar con piezas de tiro alto.",
+        materials: "Seda sintética mate de tacto suave."
+      },
+      { 
+        id: 4, 
+        name: "Pantalón Fluido Palazzo", 
+        category: "Pantalones", 
+        price: 230000, 
+        img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80",
+        description: "Pantalón de corte ancho con movimiento fluido y pretina alta estructurada.",
+        materials: "Lino olan liviano."
+      },
+      { 
+        id: 5, 
+        name: "Short Lino Estructurado", 
+        category: "Shorts", 
+        price: 160000, 
+        img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=600&q=80",
+        description: "Short sastrero de corte impecable, diseñado para aportar frescura y sofisticación urbana.",
+        materials: "100% Lino local seleccionado."
+      },
+      { 
+        id: 6, 
+        name: "Blusa Encaje Sensual", 
+        category: "Blusas", 
+        price: 180000, 
+        img: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=600&q=80",
+        description: "Blusa delicada con detalles en encaje fino y transparencias sutiles de alta costura.",
+        materials: "Encaje chantilly y algodón."
+      },
+      { 
+        id: 7, 
+        name: "Cinturón Cuero Minimal", 
+        category: "Accesorios", 
+        price: 95000, 
+        img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80",
+        description: "Accesorio en cuero genuino con hebilla metálica de diseño exclusivo.",
+        materials: "100% Cuero bovino."
+      }
+    ];
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
+    let cart = [];
+    let selectedSize = 'S'; // Talla por defecto
 
-        function checkoutWhatsApp() {
-            if(cart.length === 0) {
-                alert("Tu bolsa está vacía");
-                return;
-            }
-            let mensaje = "Hola SAVÉLLE, deseo realizar un pedido de:\n";
-            cart.forEach(item => {
-                mensaje += `- ${item.name} ($${item.price.toLocaleString('es-CO')} COP)\n`;
-            });
-            window.open(`https://wa.me/573000000000?text=${encodeURIComponent(mensaje)}`, '_blank');
-        }
-    </script>
+    // ELEMENTOS DOM
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const openShopBtn = document.getElementById('openShopBtn');
+    const backToMenuBtn = document.getElementById('backToMenuBtn');
+    const mainNavPanel = document.getElementById('mainNavPanel');
+    const shopSubPanel = document.getElementById('shopSubPanel');
+
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const productDetailModal = document.getElementById('productDetailModal');
+
+    // NAVEGACIÓN MENÚ LATERAL
+    openMenuBtn.addEventListener('click', () => {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+    });
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      shopSubPanel.classList.remove('active');
+      mainNavPanel.style.display = 'block';
+    }
+
+    closeMenuBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', () => {
+      closeDrawer();
+      cartDrawer.classList.remove('active');
+      closeProductDetail();
+    });
+
+    openShopBtn.addEventListener('click', () => {
+      mainNavPanel.style.display = 'none';
+      shopSubPanel.classList.add('active');
+    });
+
+    backToMenuBtn.addEventListener('click', () => {
+      shopSubPanel.classList.remove('active');
+      mainNavPanel.style.display = 'block';
+    });
+
+    // CARRUSEL FLUIDO TOUCH/SWIPE
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function setSlidePosition(index) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+
+    track.addEventListener('touchstart', touchStart);
+    track.addEventListener('touchend', touchEnd);
+    track.addEventListener('touchmove', touchMove);
+    track.addEventListener('mousedown', touchStart);
+    track.addEventListener('mouseup', touchEnd);
+    track.addEventListener('mouseleave', touchEnd);
+    track.addEventListener('mousemove', touchMove);
+
+    function touchStart(e) {
+      isDragging = true;
+      startX = getPositionX(e);
+    }
+
+    function touchMove(e) {
+      if (!isDragging) return;
+      const currentPosition = getPositionX(e);
+      const diff = currentPosition - startX;
+      if (Math.abs(diff) > 50) {
+        if (diff < 0 && currentIndex < 2) currentIndex++;
+        else if (diff > 0 && currentIndex > 0) currentIndex--;
+        setSlidePosition(currentIndex);
+        isDragging = false;
+      }
+    }
+
+    function touchEnd() {
+      isDragging = false;
+    }
+
+    function getPositionX(e) {
+      return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        currentIndex = parseInt(e.target.dataset.index);
+        setSlidePosition(currentIndex);
+      });
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % 3;
+      setSlidePosition(currentIndex);
+    }, 5000);
+
+    // RENDERIZAR PRODUCTOS
+    function renderProducts(items) {
+      const productGrid = document.getElementById('productGrid');
+      productGrid.innerHTML = '';
+      items.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.onclick = () => openProductDetail(product.id);
+        card.innerHTML = `
+          <div class="product-img-wrapper">
+            <img src="${product.img}" alt="${product.name}">
+          </div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-price">$${product.price.toLocaleString('es-CO')} COP</div>
+          <button class="add-to-cart-btn" onclick="event.stopPropagation(); openProductDetail(${product.id})">Ver Detalle</button>
+        `;
+        productGrid.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat) {
+      closeDrawer();
+      document.getElementById('catalogTitle').innerText = cat.toUpperCase();
+      const filtered = products.filter(p => p.category === cat);
+      renderProducts(filtered.length ? filtered : products);
+      document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ABRIR VISTA DETALLADA DE PRENDA
+    function openProductDetail(productId) {
+      const product = products.find(p => p.id === productId);
+      const container = document.getElementById('detailContainer');
+      selectedSize = 'S'; // Reset por defecto
+
+      container.innerHTML = `
+        <div class="detail-img-box">
+          <img src="${product.img}" alt="${product.name}">
+        </div>
+        <div class="detail-info">
+          <h2>${product.name}</h2>
+          <div class="detail-price">$${product.price.toLocaleString('es-CO')} COP</div>
+          <p class="detail-desc">${product.description}</p>
+          
+          <div class="detail-section-title">Materiales</div>
+          <p class="detail-desc" style="margin-bottom: 15px;">${product.materials}</p>
+
+          <div class="detail-section-title">Selecciona tu Talla</div>
+          <div class="size-selector">
+            <button class="size-btn" onclick="selectSize('XS', this)">XS</button>
+            <button class="size-btn selected" onclick="selectSize('S', this)">S</button>
+            <button class="size-btn" onclick="selectSize('M', this)">M</button>
+            <button class="size-btn" onclick="selectSize('L', this)">L</button>
+            <button class="size-btn" onclick="selectSize('XL', this)">XL</button>
+          </div>
+
+          <div class="size-guide-box">
+            <strong>Guía de Tallas (Referencia):</strong><br>
+            XS: Busto 82cm | Cintura 64cm<br>
+            S: Busto 86cm | Cintura 68cm<br>
+            M: Busto 90cm | Cintura 72cm<br>
+            L: Busto 95cm | Cintura 77cm<br>
+            XL: Busto 100cm | Cintura 82cm
+          </div>
+
+          <button class="detail-add-btn" onclick="addToCartFromDetail(${product.id})">AGREGAR AL CARRITO</button>
+        </div>
+      `;
+
+      productDetailModal.classList.add('active');
+      drawerOverlay.classList.add('active');
+    }
+
+    function selectSize(size, btn) {
+      selectedSize = size;
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+
+    function closeProductDetail() {
+      productDetailModal.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+    }
+
+    function addToCartFromDetail(productId) {
+      const prod = products.find(p => p.id === productId);
+      const cartItemId = `${productId}-${selectedSize}`;
+      const existing = cart.find(item => item.cartItemId === cartItemId);
+
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ ...prod, cartItemId, size: selectedSize, qty: 1 });
+      }
+
+      updateCartUI();
+      closeProductDetail();
+      showToast("Artículo agregado al carrito");
+    }
+
+    function updateCartUI() {
+      const cartCount = document.getElementById('cartCount');
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      cartCount.innerText = totalItems;
+      cartTotal.innerText = `$${totalPrice.toLocaleString('es-CO')} COP`;
+
+      cartItems.innerHTML = cart.length ? '' : '<p style="text-align:center; color:#888; font-size:0.85rem; margin-top:30px;">Tu bolsa está vacía</p>';
+
+      cart.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="cart-item-details">
+            <div style="font-size: 0.8rem; font-weight: 500;">${item.name}</div>
+            <div style="font-size: 0.75rem; color: #666;">Talla: ${item.size} | $${item.price.toLocaleString('es-CO')} x ${item.qty}</div>
+          </div>
+        `;
+        cartItems.appendChild(div);
+      });
+    }
+
+    openCartBtn.addEventListener('click', () => {
+      cartDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+    });
+
+    closeCartBtn.addEventListener('click', () => {
+      cartDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+    });
+
+    function checkoutWhatsApp() {
+      const clientName = document.getElementById('clientName').value.trim();
+
+      if (!clientName) {
+        alert("Por favor ingresa tu Nombre y Apellido para continuar.");
+        return;
+      }
+
+      if (cart.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      let message = `¡Hola SAVÉLLE! Deseo realizar la siguiente compra:\n\n`;
+      message += `👤 *Cliente:* ${clientName}\n`;
+      message += `🛍️ *Detalle del Pedido:*\n`;
+
+      cart.forEach(item => {
+        message += `• ${item.name} (Talla: ${item.size}) x${item.qty} — $${(item.price * item.qty).toLocaleString('es-CO')} COP\n`;
+      });
+
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      message += `\n💳 *Total a Pagar:* $${totalPrice.toLocaleString('es-CO')} COP\n`;
+      message += `📍 *Origen:* Boutique Virtual SAVÉLLE`;
+
+      const phone = "573018738631";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+
+    function openWhatsAppDirect() {
+      const phone = "573018738631";
+      const message = "¡Hola SAVÉLLE! Deseo recibir atención personalizada sobre sus prendas.";
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    renderProducts(products);
+  </script>
 </body>
 </html>
