@@ -1,1350 +1,1650 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAVÉLLE | Luxury Boutique</title>
-  <!-- Google Fonts luxury setup -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-light: #fcfbfa;
-      --bg-champagne: #f4efe9;
-      --text-dark: #1c1c1c;
-      --text-muted: #666666;
-      --accent-gold: #c5a059;
-      --font-heading: 'Cormorant Garamond', serif;
-      --font-body: 'Montserrat', sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAVÉLLE | Luxury Boutique</title>
+<!-- Google Fonts luxury setup -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+<style>
+:root {
+--bg-light: #fcfbfa;
+--bg-champagne: #f4efe9;
+--text-dark: #1c1c1c;
+--text-muted: #666666;
+--accent-gold: #c5a059;
+--font-heading: 'Cormorant Garamond', serif;
+--font-body: 'Montserrat', sans-serif;
+}
 
-    body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      font-family: var(--font-body);
-      overflow-x: hidden;
-    }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+-webkit-tap-highlight-color: transparent;
+}
 
-    /* HEADER MINIMALISTA */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: rgba(252, 251, 250, 0.95);
-      backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
+body {
+background-color: var(--bg-light);
+color: var(--text-dark);
+font-family: var(--font-body);
+overflow-x: hidden;
+}
 
-    .menu-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      padding: 5px;
-    }
-    .menu-btn span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background-color: var(--text-dark);
-      transition: all 0.3s ease;
-    }
+/* HEADER MINIMALISTA */
+header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 70px;
+background: rgba(252, 251, 250, 0.95);
+backdrop-filter: blur(5px);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 5%;
+z-index: 1000;
+border-bottom: 1px solid rgba(0,0,0,0.05);
+}
 
-    .brand-logo {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-weight: 400;
-      color: var(--text-dark);
-      text-decoration: none;
-    }
+.menu-btn {
+background: none;
+border: none;
+cursor: pointer;
+display: flex;
+flex-direction: column;
+gap: 5px;
+padding: 5px;
+}
+.menu-btn span {
+display: block;
+width: 22px;
+height: 1.5px;
+background-color: var(--text-dark);
+transition: all 0.3s ease;
+}
 
-    .cart-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cart-btn svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--text-dark);
-      fill: none;
-      stroke-width: 1.2;
-    }
-    .cart-count {
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 0.65rem;
-      font-weight: 400;
-      background: var(--text-dark);
-      color: #fff;
-      border-radius: 50%;
-      width: 14px;
-      height: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.brand-logo {
+font-family: var(--font-heading);
+font-size: 1.8rem;
+letter-spacing: 4px;
+text-transform: uppercase;
+font-weight: 400;
+color: var(--text-dark);
+text-decoration: none;
+cursor: pointer;
+}
 
-    /* NAVIGATION DRAWER */
-    .drawer-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.3);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 1100;
-    }
-    .drawer-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
+.cart-btn {
+background: none;
+border: none;
+cursor: pointer;
+position: relative;
+padding: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cart-btn svg {
+width: 22px;
+height: 22px;
+stroke: var(--text-dark);
+fill: none;
+stroke-width: 1.2;
+}
+.cart-count {
+position: absolute;
+top: 0;
+right: 0;
+font-size: 0.65rem;
+font-weight: 400;
+background: var(--text-dark);
+color: #fff;
+border-radius: 50%;
+width: 14px;
+height: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 
-    .drawer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 85%;
-      max-width: 380px;
-      height: 100%;
-      background: var(--bg-champagne);
-      z-index: 1200;
-      transform: translateX(-100%);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      padding: 40px 30px;
-      overflow-y: auto;
-    }
-    .drawer.active {
-      transform: translateX(0);
-    }
+/* NAVIGATION DRAWER */
+.drawer-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.3);
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+z-index: 1100;
+}
+.drawer-overlay.active {
+opacity: 1;
+visibility: visible;
+}
 
-    .drawer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-    .drawer-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-dark);
-      font-weight: 300;
-    }
+.drawer {
+position: fixed;
+top: 0;
+left: 0;
+width: 85%;
+max-width: 380px;
+height: 100%;
+background: var(--bg-champagne);
+z-index: 1200;
+transform: translateX(-100%);
+transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+display: flex;
+flex-direction: column;
+padding: 40px 30px;
+overflow-y: auto;
+}
+.drawer.active {
+transform: translateX(0);
+}
 
-    .drawer-top-links {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding-bottom: 15px;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      margin-bottom: 25px;
-    }
-    .drawer-top-links a {
-      color: var(--text-dark);
-      text-decoration: none;
-    }
+.drawer-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 40px;
+}
+.drawer-close {
+background: none;
+border: none;
+font-size: 1.5rem;
+cursor: pointer;
+color: var(--text-dark);
+font-weight: 300;
+}
 
-    .drawer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .sub-panel {
-      display: none;
-    }
-    .sub-panel.active {
-      display: block;
-    }
+.drawer-top-links {
+display: flex;
+justify-content: center;
+font-size: 0.75rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+padding-bottom: 15px;
+border-bottom: 1px solid rgba(0,0,0,0.08);
+margin-bottom: 25px;
+}
+.drawer-top-links a {
+color: var(--text-dark);
+text-decoration: none;
+}
 
-    .drawer-item {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-decoration: none;
-      color: var(--text-dark);
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-    .back-btn {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      margin-bottom: 20px;
-      display: inline-block;
-      cursor: pointer;
-      letter-spacing: 2px;
-    }
+.drawer-nav {
+display: flex;
+flex-direction: column;
+gap: 0;
+}
+.sub-panel {
+display: none;
+}
+.sub-panel.active {
+display: block;
+}
 
-    /* HERO CAROUSEL */
-    .hero-section {
-      margin-top: 70px;
-      position: relative;
-      width: 100%;
-      height: 75vh;
-      overflow: hidden;
-    }
-    .carousel-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.4s ease-out;
-      cursor: grab;
-    }
-    .carousel-slide {
-      min-width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .carousel-dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-    }
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .dot.active {
-      background: #ffffff;
-      transform: scale(1.2);
-    }
+.drawer-item {
+padding: 16px 0;
+border-bottom: 1px solid rgba(0,0,0,0.05);
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-decoration: none;
+color: var(--text-dark);
+font-size: 0.85rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+cursor: pointer;
+}
+.back-btn {
+color: var(--text-muted);
+font-size: 0.75rem;
+margin-bottom: 20px;
+display: inline-block;
+cursor: pointer;
+letter-spacing: 2px;
+}
 
-    /* SECCIÓN FUNDADORAS (SIN BOTONES DE COLECCIÓN) */
-    .founders-section {
-      padding: 80px 8% 60px;
-      text-align: center;
-      background: var(--bg-light);
-    }
-    .founders-card {
-      max-width: 750px;
-      margin: 0 auto;
-      cursor: pointer;
-    }
-    .founders-img-wrapper {
-      width: 100%;
-      max-width: 500px;
-      aspect-ratio: 4/5;
-      margin: 0 auto 30px;
-      overflow: hidden;
-      background: #f0ece7;
-    }
-    .founders-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .founders-card:hover img {
-      transform: scale(1.02);
-    }
-    .founders-title {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-    }
-    .founders-subtitle {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      margin-bottom: 20px;
-    }
-    .founders-brief {
-      font-size: 0.9rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-    .read-story-link {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-dark);
-      border-bottom: 1px solid var(--text-dark);
-      padding-bottom: 3px;
-      display: inline-block;
-    }
+/* HERO CAROUSEL */
+.hero-section {
+margin-top: 70px;
+position: relative;
+width: 100%;
+height: 75vh;
+overflow: hidden;
+}
+.carousel-track {
+display: flex;
+height: 100%;
+transition: transform 0.4s ease-out;
+cursor: grab;
+}
+.carousel-slide {
+min-width: 100%;
+height: 100%;
+position: relative;
+}
+.carousel-slide img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.carousel-dots {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 8px;
+}
+.dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background: rgba(255,255,255,0.5);
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.dot.active {
+background: #ffffff;
+transform: scale(1.2);
+}
 
-    /* VISTA MODAL DISCURSO COMPLETO */
-    .story-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--bg-light);
-      z-index: 1700;
-      overflow-y: auto;
-      display: none;
-      padding: 60px 8%;
-    }
-    .story-modal.active {
-      display: block;
-    }
-    .story-container {
-      max-width: 700px;
-      margin: 40px auto 0;
-      text-align: center;
-    }
-    .story-container h2 {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
-    .story-full-text {
-      font-size: 0.95rem;
-      line-height: 2;
-      color: var(--text-muted);
-      text-align: justify;
-      margin-top: 30px;
-      font-weight: 300;
-    }
+/* SECCIÓN FUNDADORAS */
+.founders-section {
+padding: 80px 8% 60px;
+text-align: center;
+background: var(--bg-light);
+}
+.founders-card {
+max-width: 750px;
+margin: 0 auto;
+cursor: pointer;
+}
+.founders-img-wrapper {
+width: 100%;
+max-width: 500px;
+aspect-ratio: 4/5;
+margin: 0 auto 30px;
+overflow: hidden;
+background: #f0ece7;
+}
+.founders-img-wrapper img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.6s ease;
+}
+.founders-card:hover img {
+transform: scale(1.02);
+}
+.founders-title {
+font-family: var(--font-heading);
+font-size: 2.2rem;
+font-weight: 400;
+letter-spacing: 1px;
+margin-bottom: 15px;
+}
+.founders-subtitle {
+font-size: 0.75rem;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--accent-gold);
+margin-bottom: 20px;
+}
+.founders-brief {
+font-size: 0.9rem;
+line-height: 1.9;
+color: var(--text-muted);
+font-weight: 300;
+margin-bottom: 20px;
+}
+.read-story-link {
+font-size: 0.75rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--text-dark);
+border-bottom: 1px solid var(--text-dark);
+padding-bottom: 3px;
+display: inline-block;
+}
 
-    /* PRODUCT COLLECTION */
-    .collection-section {
-      padding: 40px 5% 70px;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 400;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 30px 20px;
-    }
-    .product-card {
-      text-align: center;
-      cursor: pointer;
-    }
-    .product-img-wrapper {
-      width: 100%;
-      aspect-ratio: 3/4;
-      overflow: hidden;
-      margin-bottom: 15px;
-      background: #f0ece7;
-      position: relative;
-    }
-    .product-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .product-card:hover img {
-      transform: scale(1.03);
-    }
-    .product-name {
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      font-weight: 400;
-      margin-bottom: 5px;
-    }
-    .product-price {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-    .add-to-cart-btn {
-      background: transparent;
-      border: 1px solid var(--text-dark);
-      color: var(--text-dark);
-      padding: 8px 16px;
-      font-size: 0.7rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .add-to-cart-btn:hover {
-      background: var(--text-dark);
-      color: #fff;
-    }
+/* MODALES GENERALES */
+.generic-modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: var(--bg-light);
+z-index: 1700;
+overflow-y: auto;
+display: none;
+padding: 60px 8%;
+}
+.generic-modal.active {
+display: block;
+}
+.modal-container {
+max-width: 700px;
+margin: 40px auto 0;
+text-align: left;
+}
+.modal-container h2 {
+font-family: var(--font-heading);
+font-size: 2.2rem;
+font-weight: 400;
+margin-bottom: 20px;
+text-align: center;
+}
+.modal-body-text {
+font-size: 0.9rem;
+line-height: 1.9;
+color: var(--text-muted);
+font-weight: 300;
+margin-top: 20px;
+}
+.modal-body-text p {
+margin-bottom: 15px;
+}
 
-    /* PRODUCT DETAIL VIEW MODAL */
-    .product-detail-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--bg-light);
-      z-index: 1500;
-      overflow-y: auto;
-      display: none;
-      padding: 40px 8%;
-    }
-    .product-detail-modal.active {
-      display: block;
-    }
-    .detail-close {
-      position: absolute;
-      top: 25px;
-      right: 30px;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--text-dark);
-    }
-    .detail-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      max-width: 1100px;
-      margin: 40px auto 0;
-      align-items: start;
-    }
-    @media(max-width: 768px) {
-      .detail-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-    }
-    .detail-img-box {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: #f0ece7;
-    }
-    .detail-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .detail-info h2 {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
-    .detail-price {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .detail-desc {
-      font-size: 0.85rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .detail-section-title {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 500;
-      margin-bottom: 8px;
-      margin-top: 20px;
-    }
-    .size-selector {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .size-btn {
-      width: 40px;
-      height: 40px;
-      background: transparent;
-      border: 1px solid #ccc;
-      font-size: 0.75rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-    .size-btn.selected {
-      border-color: var(--text-dark);
-      background: var(--text-dark);
-      color: #fff;
-    }
-    .size-guide-box {
-      background: var(--bg-champagne);
-      padding: 15px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-    .detail-add-btn {
-      width: 100%;
-      background: var(--text-dark);
-      color: #fff;
-      border: none;
-      padding: 15px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-    .detail-add-btn:hover {
-      opacity: 0.85;
-    }
+/* HOME CATEGORIES GRID */
+.home-categories-section {
+padding: 60px 5%;
+background: var(--bg-champagne);
+}
+.categories-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 25px;
+max-width: 1200px;
+margin: 0 auto;
+}
+.category-card {
+position: relative;
+height: 350px;
+overflow: hidden;
+cursor: pointer;
+background: #000;
+}
+.category-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.85;
+transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.category-card:hover img {
+transform: scale(1.05);
+opacity: 0.95;
+}
+.category-card-overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+padding: 30px;
+background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+color: #fff;
+text-align: center;
+}
+.category-card-overlay h3 {
+font-family: var(--font-heading);
+font-size: 1.6rem;
+letter-spacing: 2px;
+font-weight: 400;
+margin-bottom: 5px;
+}
+.category-card-overlay span {
+font-size: 0.7rem;
+letter-spacing: 3px;
+text-transform: uppercase;
+opacity: 0.8;
+}
 
-    /* MADE IN BARRANQUILLA */
-    .origin-section {
-      padding: 70px 8%;
-      background: var(--bg-champagne);
-      text-align: center;
-    }
-    .origin-map {
-      width: 120px;
-      margin: 0 auto 25px;
-      display: block;
-      opacity: 0.75;
-    }
-    .origin-title {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
+/* PRODUCT COLLECTION */
+.collection-section {
+padding: 60px 5% 70px;
+display: none;
+}
+.collection-section.active {
+display: block;
+}
+.section-header {
+text-align: center;
+margin-bottom: 40px;
+}
+.section-title {
+font-family: var(--font-heading);
+font-size: 1.8rem;
+letter-spacing: 3px;
+text-transform: uppercase;
+font-weight: 400;
+}
+.product-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+gap: 30px 20px;
+}
+.product-card {
+text-align: center;
+cursor: pointer;
+position: relative;
+}
+.product-card.sold-out {
+opacity: 0.5;
+filter: grayscale(100%);
+cursor: not-allowed;
+}
+.product-img-wrapper {
+width: 100%;
+aspect-ratio: 3/4;
+overflow: hidden;
+margin-bottom: 15px;
+background: #f0ece7;
+position: relative;
+}
+.product-img-wrapper img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+.product-card:not(.sold-out):hover img {
+transform: scale(1.03);
+}
+.sold-out-badge {
+position: absolute;
+top: 15px;
+right: 15px;
+background: var(--text-dark);
+color: #fff;
+font-size: 0.65rem;
+letter-spacing: 1.5px;
+padding: 5px 10px;
+text-transform: uppercase;
+}
+.product-name {
+font-size: 0.85rem;
+letter-spacing: 1px;
+font-weight: 400;
+margin-bottom: 5px;
+}
+.product-card.sold-out .product-name {
+text-decoration: line-through;
+}
+.product-price {
+font-size: 0.8rem;
+color: var(--text-muted);
+margin-bottom: 12px;
+}
+.add-to-cart-btn {
+background: transparent;
+border: 1px solid var(--text-dark);
+color: var(--text-dark);
+padding: 8px 16px;
+font-size: 0.7rem;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.product-card.sold-out .add-to-cart-btn {
+border-color: #ccc;
+color: #999;
+cursor: not-allowed;
+}
+.product-card:not(.sold-out) .add-to-cart-btn:hover {
+background: var(--text-dark);
+color: #fff;
+}
 
-    /* FOOTER */
-    footer {
-      background: var(--bg-light);
-      padding: 60px 8% 30px;
-      border-top: 1px solid rgba(0,0,0,0.05);
-    }
-    .footer-top {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .footer-columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 50px;
-    }
-    .footer-col h4 {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 12px;
-    }
-    .footer-col a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      transition: color 0.3s ease;
-    }
-    .footer-col a:hover {
-      color: var(--text-dark);
-    }
-    .newsletter-input {
-      display: flex;
-      margin-top: 15px;
-    }
-    .newsletter-input input {
-      border: 1px solid #ccc;
-      padding: 10px;
-      font-size: 0.8rem;
-      width: 100%;
-      background: transparent;
-      outline: none;
-    }
-    .newsletter-input button {
-      background: var(--bg-champagne);
-      border: 1px solid #ccc;
-      border-left: none;
-      padding: 10px 15px;
-      font-size: 0.7rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-    }
-    .footer-bottom {
-      border-top: 1px solid rgba(0,0,0,0.05);
-      padding-top: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
+/* PRODUCT DETAIL MODAL VIEW */
+.product-detail-modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: var(--bg-light);
+z-index: 1500;
+overflow-y: auto;
+display: none;
+padding: 40px 8%;
+}
+.product-detail-modal.active {
+display: block;
+}
+.detail-close {
+position: absolute;
+top: 25px;
+right: 30px;
+background: none;
+border: none;
+font-size: 2rem;
+cursor: pointer;
+color: var(--text-dark);
+}
+.detail-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 50px;
+max-width: 1100px;
+margin: 40px auto 0;
+align-items: start;
+}
+@media(max-width: 768px) {
+.detail-container {
+grid-template-columns: 1fr;
+gap: 30px;
+}
+}
+.detail-img-box {
+width: 100%;
+aspect-ratio: 3/4;
+background: #f0ece7;
+}
+.detail-img-box img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.detail-info h2 {
+font-family: var(--font-heading);
+font-size: 2.2rem;
+font-weight: 400;
+margin-bottom: 10px;
+}
+.detail-price {
+font-size: 1.1rem;
+color: var(--text-muted);
+margin-bottom: 20px;
+}
+.detail-desc {
+font-size: 0.85rem;
+line-height: 1.8;
+color: var(--text-muted);
+margin-bottom: 20px;
+}
+.detail-section-title {
+font-size: 0.75rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+font-weight: 500;
+margin-bottom: 8px;
+margin-top: 20px;
+}
+.size-selector {
+display: flex;
+gap: 10px;
+margin-bottom: 20px;
+flex-wrap: wrap;
+}
+.size-btn {
+min-width: 40px;
+height: 40px;
+padding: 0 10px;
+background: transparent;
+border: 1px solid #ccc;
+font-size: 0.75rem;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.2s ease;
+}
+.size-btn.selected {
+border-color: var(--text-dark);
+background: var(--text-dark);
+color: #fff;
+}
+.size-guide-box {
+background: var(--bg-champagne);
+padding: 15px;
+font-size: 0.75rem;
+color: var(--text-muted);
+margin-bottom: 25px;
+line-height: 1.6;
+}
+.detail-add-btn {
+width: 100%;
+background: var(--text-dark);
+color: #fff;
+border: none;
+padding: 15px;
+font-size: 0.75rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+cursor: pointer;
+transition: opacity 0.3s;
+}
+.detail-add-btn:hover {
+opacity: 0.85;
+}
 
-    /* CART SLIDE MODAL */
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      max-width: 400px;
-      height: 100%;
-      background: var(--bg-light);
-      z-index: 1600;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      padding: 30px;
-      box-shadow: -5px 0 25px rgba(0,0,0,0.05);
-    }
-    .cart-drawer.active {
-      transform: translateX(0);
-    }
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 0;
-    }
-    .cart-item {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 20px;
-      align-items: center;
-    }
-    .cart-item img {
-      width: 60px;
-      height: 80px;
-      object-fit: cover;
-    }
-    .cart-item-details {
-      flex: 1;
-    }
-    .cart-footer {
-      border-top: 1px solid rgba(0,0,0,0.05);
-      padding-top: 20px;
-    }
-    .cart-input-group {
-      margin-bottom: 15px;
-    }
-    .cart-input-group label {
-      display: block;
-      font-size: 0.7rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .cart-input-group input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      font-size: 0.85rem;
-      background: transparent;
-    }
-    .checkout-btn {
-      width: 100%;
-      background: var(--text-dark);
-      color: #fff;
-      border: none;
-      padding: 14px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
+/* MADE IN BARRANQUILLA */
+.origin-section {
+padding: 70px 8%;
+background: var(--bg-champagne);
+text-align: center;
+}
+.origin-map {
+width: 120px;
+margin: 0 auto 25px;
+display: block;
+opacity: 0.75;
+}
+.origin-title {
+font-family: var(--font-heading);
+font-size: 2rem;
+font-weight: 400;
+margin-bottom: 20px;
+}
+.about-text {
+font-size: 0.9rem;
+line-height: 1.9;
+color: var(--text-muted);
+max-width: 700px;
+margin: 0 auto;
+font-weight: 300;
+}
 
-    /* FLOATING WHATSAPP */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 48px;
-      height: 48px;
-      background: var(--bg-champagne);
-      border: 1px solid var(--accent-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      z-index: 999;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.05);
-    }
-    .whatsapp-float svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--text-dark);
-    }
+/* FOOTER */
+footer {
+background: var(--bg-light);
+padding: 60px 8% 30px;
+border-top: 1px solid rgba(0,0,0,0.05);
+}
+.footer-top {
+text-align: center;
+margin-bottom: 40px;
+}
+.footer-columns {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 40px;
+margin-bottom: 50px;
+}
+.footer-col h4 {
+font-size: 0.75rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 20px;
+font-weight: 500;
+}
+.footer-col ul {
+list-style: none;
+}
+.footer-col li {
+margin-bottom: 12px;
+}
+.footer-col a {
+color: var(--text-muted);
+text-decoration: none;
+font-size: 0.8rem;
+transition: color 0.3s ease;
+cursor: pointer;
+}
+.footer-col a:hover {
+color: var(--text-dark);
+}
+.footer-bottom {
+border-top: 1px solid rgba(0,0,0,0.05);
+padding-top: 25px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+font-size: 0.7rem;
+color: var(--text-muted);
+}
 
-    /* TOAST NOTIFICATION */
-    .toast-msg {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--text-dark);
-      color: #fff;
-      padding: 10px 20px;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 2000;
-    }
-    .toast-msg.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-  </style>
+/* CART SLIDE MODAL */
+.cart-drawer {
+position: fixed;
+top: 0;
+right: 0;
+width: 100%;
+max-width: 400px;
+height: 100%;
+background: var(--bg-light);
+z-index: 1600;
+transform: translateX(100%);
+transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+display: flex;
+flex-direction: column;
+padding: 30px;
+box-shadow: -5px 0 25px rgba(0,0,0,0.05);
+}
+.cart-drawer.active {
+transform: translateX(0);
+}
+.cart-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-bottom: 20px;
+border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.cart-items {
+flex: 1;
+overflow-y: auto;
+padding: 20px 0;
+}
+.cart-item {
+display: flex;
+gap: 15px;
+margin-bottom: 20px;
+align-items: center;
+}
+.cart-item img {
+width: 60px;
+height: 80px;
+object-fit: cover;
+}
+.cart-item-details {
+flex: 1;
+}
+.cart-footer {
+border-top: 1px solid rgba(0,0,0,0.05);
+padding-top: 20px;
+}
+.cart-input-group {
+margin-bottom: 15px;
+}
+.cart-input-group label {
+display: block;
+font-size: 0.7rem;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 5px;
+}
+.cart-input-group input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+font-size: 0.85rem;
+background: transparent;
+}
+.checkout-btn {
+width: 100%;
+background: var(--text-dark);
+color: #fff;
+border: none;
+padding: 14px;
+font-size: 0.75rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+cursor: pointer;
+}
+
+/* FLOATING WHATSAPP */
+.whatsapp-float {
+position: fixed;
+bottom: 25px;
+right: 25px;
+width: 48px;
+height: 48px;
+background: var(--bg-champagne);
+border: 1px solid var(--accent-gold);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+z-index: 999;
+cursor: pointer;
+transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+transform: scale(1.05);
+}
+.whatsapp-float svg {
+width: 22px;
+height: 22px;
+fill: var(--text-dark);
+}
+
+/* TOAST NOTIFICATION */
+.toast-msg {
+position: fixed;
+bottom: 80px;
+left: 50%;
+transform: translateX(-50%) translateY(20px);
+background: var(--text-dark);
+color: #fff;
+padding: 10px 20px;
+font-size: 0.75rem;
+letter-spacing: 1px;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+z-index: 2000;
+}
+.toast-msg.show {
+opacity: 1;
+visibility: visible;
+transform: translateX(-50%) translateY(0);
+}
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <button class="menu-btn" id="openMenuBtn" aria-label="Abrir Menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    
-    <a href="#" class="brand-logo">SAVÉLLE</a>
-    
-    <button class="cart-btn" id="openCartBtn" aria-label="Ver Carrito">
-      <svg viewBox="0 0 24 24">
-        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <path d="M16 10a4 4 0 0 1-8 0"></path>
-      </svg>
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </header>
-
-  <!-- DRAWER OVERLAY -->
-  <div class="drawer-overlay" id="drawerOverlay"></div>
-
-  <!-- NAVIGATION DRAWER -->
-  <div class="drawer" id="drawer">
-    <div class="drawer-header">
-      <span class="brand-logo" style="font-size: 1.3rem;">SAVÉLLE</span>
-      <button class="drawer-close" id="closeMenuBtn">&times;</button>
-    </div>
-
-    <div class="drawer-top-links">
-      <a href="#" onclick="showToast('Buscador activado')">BUSCAR</a>
-      <a href="#" onclick="showToast('Área de cliente en mantenimiento')">VER CUENTA</a>
-    </div>
-
-    <div class="drawer-nav">
-      <!-- MAIN PANEL -->
-      <div class="nav-panel" id="mainNavPanel">
-        <div class="drawer-item" id="openShopBtn">
-          <span>COMPRAR</span>
-          <span>&rsaquo;</span>
-        </div>
-        <a href="#about" class="drawer-item" onclick="closeDrawer()">NUESTRA HISTORIA</a>
-        <a href="#origin" class="drawer-item" onclick="closeDrawer()">HECHO EN BARRANQUILLA</a>
-        <a href="#footer" class="drawer-item" onclick="closeDrawer()">CONTACTO</a>
-      </div>
-
-      <!-- SUB PANEL COMPRAR -->
-      <div class="sub-panel" id="shopSubPanel">
-        <span class="back-btn" id="backToMenuBtn">&lsaquo; ATRÁS</span>
-        <div class="drawer-item" onclick="filterCategory('Vestidos')">VESTIDOS</div>
-        <div class="drawer-item" onclick="filterCategory('Faldas')">FALDAS</div>
-        <div class="drawer-item" onclick="filterCategory('Crop-tops')">CROP-TOPS</div>
-        <div class="drawer-item" onclick="filterCategory('Pantalones')">PANTALONES</div>
-        <div class="drawer-item" onclick="filterCategory('Shorts')">SHORTS</div>
-        <div class="drawer-item" onclick="filterCategory('Blusas')">BLUSAS</div>
-        <div class="drawer-item" onclick="filterCategory('Accesorios')">ACCESORIOS</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO CAROUSEL -->
-  <section class="hero-section">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 1">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 2">
-      </div>
-      <div class="carousel-slide">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 3">
-      </div>
-    </div>
-    <div class="carousel-dots" id="carouselDots">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-    </div>
-  </section>
-
-  <!-- SECCIÓN FUNDADORAS (SIN BOTÓN DE COLECCIÓN) -->
-  <section class="founders-section" id="about">
-    <div class="founders-card" onclick="openStoryModal()">
-      <div class="founders-img-wrapper">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Michel Piñeres e Isabella Venegas">
-      </div>
-      <h2 class="founders-title">Michel Piñeres & Isabella Venegas</h2>
-      <div class="founders-subtitle">Fundadoras & Directoras Creativas</div>
-      <p class="founders-brief">
-        "SAVÉLLE nace de la convicción de que la elegancia no es ostentación, sino el arte de la discreción y el detalle perfecto. Diseñamos para la mujer contemporánea que valora el lujo consciente y la autenticidad."
-      </p>
-      <span class="read-story-link">LEER HISTORIA COMPLETA</span>
-    </div>
-  </section>
-
-  <!-- VISTA MODAL DISCURSO COMPLETO -->
-  <div class="story-modal" id="storyModal">
-    <button class="detail-close" onclick="closeStoryModal()">&times;</button>
-    <div class="story-container">
-      <h2>Michel Piñeres & Isabella Venegas</h2>
-      <div class="founders-subtitle">NUESTRA HISTORIA & MANIFIESTO</div>
-      <div class="founders-img-wrapper" style="max-width: 400px; aspect-ratio: 1/1; margin-top: 20px;">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Fundadoras SAVÉLLE">
-      </div>
-      <div class="story-full-text">
-        <p>Concebida en el corazón vibrante de Barranquilla, SAVÉLLE es el fruto de una visión compartida entre Michel Piñeres e Isabella Venegas. Nuestra firma nació no solo como una marca de moda, sino como una propuesta de vida orientada al *slow fashion* y al lujo atemporal.</p>
-        <br>
-        <p>Creemos apasionadamente en redefinir el vestuario femenino a través de piezas que combinan líneas minimalistas, tejidos de la más alta calidad y una confección impecable hecha por manos locales. Para nosotras, cada prenda debe contar una historia de sofisticación sin esfuerzo, pensada para trascender las tendencias efímeras y acompañar a la mujer moderna en cada faceta de su vida.</p>
-        <br>
-        <p>Agradecemos profundamente a cada persona que forma parte de este viaje y abraza nuestra visión de elegancia, autenticidad y pasión artesanal.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- COLLECTION SECTION -->
-  <section class="collection-section" id="collection">
-    <div class="section-header">
-      <h2 class="section-title" id="catalogTitle">COLECCIÓN</h2>
-    </div>
-    <div class="product-grid" id="productGrid"></div>
-  </section>
-
-  <!-- PRODUCT DETAIL MODAL VIEW -->
-  <div class="product-detail-modal" id="productDetailModal">
-    <button class="detail-close" onclick="closeProductDetail()">&times;</button>
-    <div class="detail-container" id="detailContainer"></div>
-  </div>
-
-  <!-- MADE IN BARRANQUILLA SECTION -->
-  <section class="origin-section" id="origin">
-    <svg class="origin-map" viewBox="0 0 100 120" fill="none" stroke="#c5a059" stroke-width="1.5">
-      <path d="M30 10 C 50 5, 70 15, 85 35 C 95 55, 75 80, 50 110 C 25 80, 5 55, 15 35 Z" fill="#f4efe9"/>
-    </svg>
-    <h2 class="origin-title">Hecho en Barranquilla</h2>
-    <p class="about-text">
-      Creemos firmemente en el poder del diseño artesanal local y el liderazgo femenino. Cada pieza de SAVÉLLE es producida localmente bajo los más estrictos estándares de *slow fashion*, valorando la suprema calidad de cada costura por encima de la producción masiva.
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="footer-top">
-      <span class="brand-logo" style="font-size: 1.6rem;">SAVÉLLE</span>
-    </div>
-    
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h4>Servicio al Cliente</h4>
-        <ul>
-          <li><a href="#" onclick="openWhatsAppDirect()">Contáctanos</a></li>
-          <li><a href="#" onclick="showToast('Política de cambios: 30 días')">Devoluciones</a></li>
-          <li><a href="#" onclick="showToast('Envíos nacionales e internacionales')">Envíos</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Compañía</h4>
-        <ul>
-          <li><a href="#" onclick="openStoryModal()">Nuestra Historia</a></li>
-          <li><a href="#collection">Lookbook</a></li>
-          <li><a href="#" onclick="showToast('Términos & Privacidad SAVÉLLE')">Privacidad & Términos</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Suscríbete</h4>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">Recibe novedades exclusivas sobre nuestros próximos lanzamientos.</p>
-        <div class="newsletter-input">
-          <input type="email" placeholder="Tu correo electrónico">
-          <button onclick="showToast('Gracias por suscribirte')">ENVIAR</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>&copy; 2026 SAVÉLLE&trade;</span>
-      <span>CRÉDITOS DEL SITIO</span>
-      <span>HECHO EN BARRANQUILLA</span>
-    </div>
-  </footer>
-
-  <!-- CART DRAWER -->
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-header">
-      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 400;">Bolsa de Compras</h3>
-      <button class="drawer-close" id="closeCartBtn">&times;</button>
-    </div>
-
-    <div class="cart-items" id="cartItems"></div>
-
-    <div class="cart-footer">
-      <div class="cart-input-group">
-        <label for="clientName">Nombre y Apellido *</label>
-        <input type="text" id="clientName" placeholder="Tu nombre completo" required>
-      </div>
-
-      <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.9rem;">
-        <span>Total:</span>
-        <span id="cartTotal" style="font-weight: 500;">$0 COP</span>
-      </div>
-
-      <button class="checkout-btn" onclick="checkoutWhatsApp()">COMPRAR VÍA WHATSAPP</button>
-    </div>
-  </div>
-
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <div class="whatsapp-float" onclick="openWhatsAppDirect()" title="Atención personalizada">
-    <svg viewBox="0 0 24 24">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-    </svg>
-  </div>
-
-  <!-- TOAST NOTIFICATION -->
-  <div class="toast-msg" id="toastMsg">Artículo agregado al carrito</div>
-
-  <script>
-    // DATOS DE PRODUCTOS
-    const products = [
-      { 
-        id: 1, 
-        name: "Vestido Lino Champagne", 
-        category: "Vestidos", 
-        price: 280000, 
-        img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",
-        description: "Vestido largo de silueta fluida confeccionado artesanalmente, ideal para climas cálidos con un toque sofisticado.",
-        materials: "100% Lino europeo de alta pureza."
-      },
-      { 
-        id: 2, 
-        name: "Falda Midi Lujo", 
-        category: "Faldas", 
-        price: 190000, 
-        img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80",
-        description: "Falda midi con caída impecable y estructura sutil que realza la figura con absoluta elegancia.",
-        materials: "Mezcla de lino y viscosa premium."
-      },
-      { 
-        id: 3, 
-        name: "Crop-Top Seda Marfil", 
-        category: "Crop-tops", 
-        price: 140000, 
-        img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80",
-        description: "Diseño minimalista de líneas limpias, perfecto para combinar con piezas de tiro alto.",
-        materials: "Seda sintética mate de tacto suave."
-      },
-      { 
-        id: 4, 
-        name: "Pantalón Fluido Palazzo", 
-        category: "Pantalones", 
-        price: 230000, 
-        img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80",
-        description: "Pantalón de corte ancho con movimiento fluido y pretina alta estructurada.",
-        materials: "Lino olan liviano."
-      },
-      { 
-        id: 5, 
-        name: "Short Lino Estructurado", 
-        category: "Shorts", 
-        price: 160000, 
-        img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=600&q=80",
-        description: "Short sastrero de corte impecable, diseñado para aportar frescura y sofisticación urbana.",
-        materials: "100% Lino local seleccionado."
-      },
-      { 
-        id: 6, 
-        name: "Blusa Encaje Sensual", 
-        category: "Blusas", 
-        price: 180000, 
-        img: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=600&q=80",
-        description: "Blusa delicada con detalles en encaje fino y transparencias sutiles de alta costura.",
-        materials: "Encaje chantilly y algodón."
-      },
-      { 
-        id: 7, 
-        name: "Cinturón Cuero Minimal", 
-        category: "Accesorios", 
-        price: 95000, 
-        img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80",
-        description: "Accesorio en cuero genuino con hebilla metálica de diseño exclusivo.",
-        materials: "100% Cuero bovino."
-      }
-    ];
-
-    let cart = [];
-    let selectedSize = 'S';
-
-    // ELEMENTOS DOM
-    const openMenuBtn = document.getElementById('openMenuBtn');
-    const closeMenuBtn = document.getElementById('closeMenuBtn');
-    const drawer = document.getElementById('drawer');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-    const openShopBtn = document.getElementById('openShopBtn');
-    const backToMenuBtn = document.getElementById('backToMenuBtn');
-    const mainNavPanel = document.getElementById('mainNavPanel');
-    const shopSubPanel = document.getElementById('shopSubPanel');
-
-    const openCartBtn = document.getElementById('openCartBtn');
-    const closeCartBtn = document.getElementById('closeCartBtn');
-    const cartDrawer = document.getElementById('cartDrawer');
-    const productDetailModal = document.getElementById('productDetailModal');
-    const storyModal = document.getElementById('storyModal');
-
-    // NAVEGACIÓN MENÚ LATERAL
-    openMenuBtn.addEventListener('click', () => {
-      drawer.classList.add('active');
-      drawerOverlay.classList.add('active');
-    });
-
-    function closeDrawer() {
-      drawer.classList.remove('active');
-      drawerOverlay.classList.remove('active');
-      shopSubPanel.classList.remove('active');
-      mainNavPanel.style.display = 'block';
-    }
-
-    closeMenuBtn.addEventListener('click', closeDrawer);
-    drawerOverlay.addEventListener('click', () => {
-      closeDrawer();
-      cartDrawer.classList.remove('active');
-      closeProductDetail();
-      closeStoryModal();
-    });
-
-    openShopBtn.addEventListener('click', () => {
-      mainNavPanel.style.display = 'none';
-      shopSubPanel.classList.add('active');
-    });
-
-    backToMenuBtn.addEventListener('click', () => {
-      shopSubPanel.classList.remove('active');
-      mainNavPanel.style.display = 'block';
-    });
-
-    // FUNCIONES DISCURSO COMPLETO FUNDADORAS
-    function openStoryModal() {
-      storyModal.classList.add('active');
-      drawerOverlay.classList.add('active');
-    }
-
-    function closeStoryModal() {
-      storyModal.classList.remove('active');
-      drawerOverlay.classList.remove('active');
-    }
-
-    // CARRUSEL FLUIDO TOUCH/SWIPE
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.dot');
-    let currentIndex = 0;
-    let startX = 0;
-    let isDragging = false;
-
-    function setSlidePosition(index) {
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    }
-
-    track.addEventListener('touchstart', touchStart);
-    track.addEventListener('touchend', touchEnd);
-    track.addEventListener('touchmove', touchMove);
-    track.addEventListener('mousedown', touchStart);
-    track.addEventListener('mouseup', touchEnd);
-    track.addEventListener('mouseleave', touchEnd);
-    track.addEventListener('mousemove', touchMove);
-
-    function touchStart(e) {
-      isDragging = true;
-      startX = getPositionX(e);
-    }
-
-    function touchMove(e) {
-      if (!isDragging) return;
-      const currentPosition = getPositionX(e);
-      const diff = currentPosition - startX;
-      if (Math.abs(diff) > 50) {
-        if (diff < 0 && currentIndex < 2) currentIndex++;
-        else if (diff > 0 && currentIndex > 0) currentIndex--;
-        setSlidePosition(currentIndex);
-        isDragging = false;
-      }
-    }
-
-    function touchEnd() {
-      isDragging = false;
-    }
-
-    function getPositionX(e) {
-      return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', (e) => {
-        currentIndex = parseInt(e.target.dataset.index);
-        setSlidePosition(currentIndex);
-      });
-    });
-
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % 3;
-      setSlidePosition(currentIndex);
-    }, 5000);
-
-    // RENDERIZAR PRODUCTOS
-    function renderProducts(items) {
-      const productGrid = document.getElementById('productGrid');
-      productGrid.innerHTML = '';
-      items.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.onclick = () => openProductDetail(product.id);
-        card.innerHTML = `
-          <div class="product-img-wrapper">
-            <img src="${product.img}" alt="${product.name}">
-          </div>
-          <div class="product-name">${product.name}</div>
-          <div class="product-price">$${product.price.toLocaleString('es-CO')} COP</div>
-          <button class="add-to-cart-btn" onclick="event.stopPropagation(); openProductDetail(${product.id})">Ver Detalle</button>
-        `;
-        productGrid.appendChild(card);
-      });
-    }
-
-    function filterCategory(cat) {
-      closeDrawer();
-      document.getElementById('catalogTitle').innerText = cat.toUpperCase();
-      const filtered = products.filter(p => p.category === cat);
-      renderProducts(filtered.length ? filtered : products);
-      document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // ABRIR VISTA DETALLADA DE PRENDA
-    function openProductDetail(productId) {
-      const product = products.find(p => p.id === productId);
-      const container = document.getElementById('detailContainer');
-      selectedSize = 'S';
-
-      container.innerHTML = `
-        <div class="detail-img-box">
-          <img src="${product.img}" alt="${product.name}">
-        </div>
-        <div class="detail-info">
-          <h2>${product.name}</h2>
-          <div class="detail-price">$${product.price.toLocaleString('es-CO')} COP</div>
-          <p class="detail-desc">${product.description}</p>
-          
-          <div class="detail-section-title">Materiales</div>
-          <p class="detail-desc" style="margin-bottom: 15px;">${product.materials}</p>
-
-          <div class="detail-section-title">Selecciona tu Talla</div>
-          <div class="size-selector">
-            <button class="size-btn" onclick="selectSize('XS', this)">XS</button>
-            <button class="size-btn selected" onclick="selectSize('S', this)">S</button>
-            <button class="size-btn" onclick="selectSize('M', this)">M</button>
-            <button class="size-btn" onclick="selectSize('L', this)">L</button>
-            <button class="size-btn" onclick="selectSize('XL', this)">XL</button>
-          </div>
-
-          <div class="size-guide-box">
-            <strong>Guía de Tallas (Referencia):</strong><br>
-            XS: Busto 82cm | Cintura 64cm<br>
-            S: Busto 86cm | Cintura 68cm<br>
-            M: Busto 90cm | Cintura 72cm<br>
-            L: Busto 95cm | Cintura 77cm<br>
-            XL: Busto 100cm | Cintura 82cm
-          </div>
-
-          <button class="detail-add-btn" onclick="addToCartFromDetail(${product.id})">AGREGAR AL CARRITO</button>
-        </div>
-      `;
-
-      productDetailModal.classList.add('active');
-      drawerOverlay.classList.add('active');
-    }
-
-    function selectSize(size, btn) {
-      selectedSize = size;
-      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    }
-
-    function closeProductDetail() {
-      productDetailModal.classList.remove('active');
-      drawerOverlay.classList.remove('active');
-    }
-
-    function addToCartFromDetail(productId) {
-      const prod = products.find(p => p.id === productId);
-      const cartItemId = `${productId}-${selectedSize}`;
-      const existing = cart.find(item => item.cartItemId === cartItemId);
-
-      if (existing) {
-        existing.qty++;
-      } else {
-        cart.push({ ...prod, cartItemId, size: selectedSize, qty: 1 });
-      }
-
-      updateCartUI();
-      closeProductDetail();
-      showToast("Artículo agregado al carrito");
-    }
-
-    function updateCartUI() {
-      const cartCount = document.getElementById('cartCount');
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
-
-      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-      cartCount.innerText = totalItems;
-      cartTotal.innerText = `$${totalPrice.toLocaleString('es-CO')} COP`;
-
-      cartItems.innerHTML = cart.length ? '' : '<p style="text-align:center; color:#888; font-size:0.85rem; margin-top:30px;">Tu bolsa está vacía</p>';
-
-      cart.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <img src="${item.img}" alt="${item.name}">
-          <div class="cart-item-details">
-            <div style="font-size: 0.8rem; font-weight: 500;">${item.name}</div>
-            <div style="font-size: 0.75rem; color: #666;">Talla: ${item.size} | $${item.price.toLocaleString('es-CO')} x ${item.qty}</div>
-          </div>
-        `;
-        cartItems.appendChild(div);
-      });
-    }
-
-    openCartBtn.addEventListener('click', () => {
-      cartDrawer.classList.add('active');
-      drawerOverlay.classList.add('active');
-    });
-
-    closeCartBtn.addEventListener('click', () => {
-      cartDrawer.classList.remove('active');
-      drawerOverlay.classList.remove('active');
-    });
-
-    function checkoutWhatsApp() {
-      const clientName = document.getElementById('clientName').value.trim();
-
-      if (!clientName) {
-        alert("Por favor ingresa tu Nombre y Apellido para continuar.");
-        return;
-      }
-
-      if (cart.length === 0) {
-        alert("Tu carrito está vacío.");
-        return;
-      }
-
-      let message = `¡Hola SAVÉLLE! Deseo realizar la siguiente compra:\n\n`;
-      message += `👤 *Cliente:* ${clientName}\n`;
-      message += `🛍️ *Detalle del Pedido:*\n`;
-
-      cart.forEach(item => {
-        message += `• ${item.name} (Talla: ${item.size}) x${item.qty} — $${(item.price * item.qty).toLocaleString('es-CO')} COP\n`;
-      });
-
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      message += `\n💳 *Total a Pagar:* $${totalPrice.toLocaleString('es-CO')} COP\n`;
-      message += `📍 *Origen:* Boutique Virtual SAVÉLLE`;
-
-      const phone = "573018738631";
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    }
-
-    function openWhatsAppDirect() {
-      const phone = "573018738631";
-      const message = "¡Hola SAVÉLLE! Deseo recibir atención personalizada sobre sus prendas.";
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-    }
-
-    function showToast(text) {
-      const toast = document.getElementById('toastMsg');
-      toast.innerText = text;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
-    }
-
-    renderProducts(products);
-  </script>
+<!-- HEADER -->
+<header>
+<button class="menu-btn" id="openMenuBtn" aria-label="Abrir Menú">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<a class="brand-logo" onclick="resetToHome()">SAVÉLLE</a>
+
+<button class="cart-btn" id="openCartBtn" aria-label="Ver Carrito">
+<svg viewBox="0 0 24 24">
+<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+<line x1="3" y1="6" x2="21" y2="6"></line>
+<path d="M16 10a4 4 0 0 1-8 0"></path>
+</svg>
+<span class="cart-count" id="cartCount">0</span>
+</button>
+</header>
+
+<!-- DRAWER OVERLAY -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- NAVIGATION DRAWER -->
+<div class="drawer" id="drawer">
+<div class="drawer-header">
+<span class="brand-logo" style="font-size: 1.3rem;" onclick="resetToHome(); closeDrawer();">SAVÉLLE</span>
+<button class="drawer-close" id="closeMenuBtn">&times;</button>
+</div>
+
+<div class="drawer-top-links">
+<a onclick="showToast('Buscador activado')">BUSCAR</a>
+</div>
+
+<div class="drawer-nav">
+<!-- MAIN PANEL -->
+<div class="nav-panel" id="mainNavPanel">
+<div class="drawer-item" id="openShopBtn">
+<span>COMPRAR</span>
+<span>&rsaquo;</span>
+</div>
+<a href="#about" class="drawer-item" onclick="closeDrawer()">NUESTRA HISTORIA</a>
+<a href="#origin" class="drawer-item" onclick="closeDrawer()">HECHO EN BARRANQUILLA</a>
+<a href="#footer" class="drawer-item" onclick="closeDrawer()">CONTACTO</a>
+</div>
+
+<!-- SUB PANEL COMPRAR -->
+<div class="sub-panel" id="shopSubPanel">
+<span class="back-btn" id="backToMenuBtn">&lsaquo; ATRÁS</span>
+<div class="drawer-item" onclick="filterCategory('Vestidos')">VESTIDOS</div>
+<div class="drawer-item" onclick="filterCategory('Faldas')">FALDAS</div>
+<div class="drawer-item" onclick="filterCategory('Crop-tops')">CROP-TOPS</div>
+<div class="drawer-item" onclick="filterCategory('Pantalones')">PANTALONES</div>
+<div class="drawer-item" onclick="filterCategory('Shorts')">SHORTS</div>
+<div class="drawer-item" onclick="filterCategory('Blusas')">BLUSAS</div>
+<div class="drawer-item" onclick="filterCategory('Accesorios')">ACCESORIOS</div>
+<div class="drawer-item" onclick="filterCategory('Fragancias')">FRAGANCIAS</div>
+</div>
+</div>
+</div>
+
+<!-- HERO CAROUSEL -->
+<section class="hero-section" id="heroSection">
+<div class="carousel-track" id="carouselTrack">
+<div class="carousel-slide">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 1">
+</div>
+<div class="carousel-slide">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 2">
+</div>
+<div class="carousel-slide">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="SAVÉLLE Hero 3">
+</div>
+</div>
+<div class="carousel-dots" id="carouselDots">
+<span class="dot active" data-index="0"></span>
+<span class="dot" data-index="1"></span>
+<span class="dot" data-index="2"></span>
+</div>
+</section>
+
+<!-- HOME CATEGORIES GRID -->
+<section class="home-categories-section" id="homeCategories">
+<div class="section-header" style="margin-bottom: 30px;">
+<h2 class="section-title">EXPLORA NUESTRAS CATEGORÍAS</h2>
+</div>
+<div class="categories-grid">
+<div class="category-card" onclick="filterCategory('Vestidos')">
+<img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80" alt="Vestidos">
+<div class="category-card-overlay">
+<h3>VESTIDOS</h3>
+<span>Ver Colección</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Faldas')">
+<img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=80" alt="Faldas">
+<div class="category-card-overlay">
+<h3>FALDAS</h3>
+<span>Ver Colección</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Crop-tops')">
+<img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=800&q=80" alt="Crop-tops">
+<div class="category-card-overlay">
+<h3>CROP-TOPS</h3>
+<span>Ver Colección</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Pantalones')">
+<img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Pantalones">
+<div class="category-card-overlay">
+<h3>PANTALONES</h3>
+<span>Ver Colección</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Shorts')">
+<img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=800&q=80" alt="Shorts">
+<div class="category-card-overlay">
+<h3>SHORTS</h3>
+<span>Ver Colección</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Blusas')">
+<img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=800&q=80" alt="Blusas">
+<div class="category-card-overlay">
+<h3>BLUSAS</h3>
+<span>Ver Colección</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Accesorios')">
+<img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80" alt="Accesorios">
+<div class="category-card-overlay">
+<h3>ACCESORIOS</h3>
+<span>Sandalias, Correas, Fajones, Bolsos</span>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Fragancias')">
+<img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80" alt="Fragancias">
+<div class="category-card-overlay">
+<h3>FRAGANCIAS</h3>
+<span>Alta Perfumería</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECCIÓN FUNDADORAS -->
+<section class="founders-section" id="about">
+<div class="founders-card" onclick="openModal('storyModal')">
+<div class="founders-img-wrapper">
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Michel Piñeres e Isabella Venegas">
+</div>
+<h2 class="founders-title">Michel Piñeres & Isabella Venegas</h2>
+<div class="founders-subtitle">Fundadoras & Directoras Creativas</div>
+<p class="founders-brief">
+"SAVÉLLE nace de la convicción de que la elegancia no es ostentación, sino el arte de la discreción y el detalle perfecto. Diseñamos para la mujer contemporánea que valora el lujo consciente y la autenticidad."
+</p>
+<span class="read-story-link">LEER HISTORIA COMPLETA</span>
+</div>
+</section>
+
+<!-- MODAL: HISTORIA COMPLETA -->
+<div class="generic-modal" id="storyModal">
+<button class="detail-close" onclick="closeModal('storyModal')">&times;</button>
+<div class="modal-container">
+<h2>Michel Piñeres & Isabella Venegas</h2>
+<div class="founders-subtitle" style="text-align: center;">NUESTRA HISTORIA & MANIFIESTO</div>
+<div class="founders-img-wrapper" style="max-width: 350px; aspect-ratio: 1/1; margin: 20px auto;">
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Fundadoras SAVÉLLE">
+</div>
+<div class="modal-body-text">
+<p>Concebida en el corazón vibrante de Barranquilla, SAVÉLLE es el fruto de una visión compartida entre Michel Piñeres e Isabella Venegas. Nuestra firma nació no solo como una marca de moda, sino como una propuesta de vida orientada al slow fashion y al lujo atemporal.</p>
+<p>Creemos apasionadamente en redefinir el vestuario femenino a través de piezas que combinan líneas minimalistas, tejidos de la más alta calidad y una confección impecable hecha por manos locales. Para nosotras, cada prenda debe contar una historia de sofisticación sin esfuerzo, pensada para trascender las tendencias efímeras y acompañar a la mujer moderna en cada faceta de su vida.</p>
+<p>Agradecemos profundamente a cada persona que forma parte de este viaje y abraza nuestra visión de elegancia, autenticidad y pasión artesanal.</p>
+</div>
+</div>
+</div>
+
+<!-- MODAL: POLÍTICA DE DEVOLUCIONES -->
+<div class="generic-modal" id="returnModal">
+<button class="detail-close" onclick="closeModal('returnModal')">&times;</button>
+<div class="modal-container">
+<h2>Política de Devoluciones</h2>
+<div class="modal-body-text">
+<p>En <strong>SAVÉLLE</strong> garantizamos la máxima calidad en cada una de nuestras piezas hechas a mano. Si por alguna razón necesitas realizar un cambio o devolución, cuentas con un plazo máximo de <strong>30 días calendario</strong> a partir de la fecha de entrega de tu pedido.</p>
+<p>Las prendas deben encontrarse en perfecto estado, sin signos de uso, con sus etiquetas originales intactas y en su empaque original. Los artículos en descuento o piezas personalizadas no aplican para devolución, únicamente para cambios por talla sujeto a disponibilidad en inventario.</p>
+<p>Para iniciar un proceso de cambio, puedes escribirnos directamente a nuestro canal oficial de atención al cliente vía WhatsApp.</p>
+</div>
+</div>
+</div>
+
+<!-- MODAL: POLÍTICA DE ENVÍOS -->
+<div class="generic-modal" id="shippingModal">
+<button class="detail-close" onclick="closeModal('shippingModal')">&times;</button>
+<div class="modal-container">
+<h2>Información de Envíos</h2>
+<div class="modal-body-text">
+<p>Realizamos envíos asegurados a nivel nacional en Colombia y envíos internacionales bajo cotización previa.</p>
+<p><strong>Tiempos estimados de entrega:</strong><br>
+• Barranquilla y área metropolitana: 1 a 3 días hábiles.<br>
+• Principales ciudades de Colombia: 3 a 5 días hábiles.<br>
+• Envíos internacionales: 7 a 12 días hábiles.</p>
+<p>Cada pieza es despachada en nuestro empaque de lujo característico, garantizando que llegue en óptimas condiciones a tus manos.</p>
+</div>
+</div>
+</div>
+
+<!-- MODAL: TÉRMINOS Y PRIVACIDAD -->
+<div class="generic-modal" id="termsModal">
+<button class="detail-close" onclick="closeModal('termsModal')">&times;</button>
+<div class="modal-container">
+<h2>Términos & Privacidad</h2>
+<div class="modal-body-text">
+<p><strong>SAVÉLLE</strong> protege rigurosamente la privacidad de sus clientas. Los datos personales proporcionados para la gestión de compras y envíos (nombre, dirección y teléfono) son utilizados exclusivamente con fines logísticos y de comunicación directa de la marca.</p>
+<p>Queda prohibida la reproducción total o parcial de los diseños, fotografías, logotipos y contenidos literarios expuestos en esta plataforma digital sin la autorización previa y por escrito de las fundadoras Michel Piñeres e Isabella Venegas.</p>
+</div>
+</div>
+</div>
+
+<!-- COLLECTION SECTION -->
+<section class="collection-section" id="collectionSection">
+<div class="section-header">
+<h2 class="section-title" id="catalogTitle">COLECCIÓN</h2>
+<button onclick="resetToHome()" style="background:none; border:none; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; text-decoration:underline; cursor:pointer; margin-top:10px; color:var(--text-muted);">← Volver al Inicio</button>
+</div>
+<div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- PRODUCT DETAIL MODAL VIEW -->
+<div class="product-detail-modal" id="productDetailModal">
+<button class="detail-close" onclick="closeProductDetail()">&times;</button>
+<div class="detail-container" id="detailContainer"></div>
+</div>
+
+<!-- MADE IN BARRANQUILLA SECTION -->
+<section class="origin-section" id="origin">
+<svg class="origin-map" viewBox="0 0 100 120" fill="none" stroke="#c5a059" stroke-width="1.5">
+<path d="M30 10 C 50 5, 70 15, 85 35 C 95 55, 75 80, 50 110 C 25 80, 5 55, 15 35 Z" fill="#f4efe9"/>
+</svg>
+<h2 class="origin-title">Hecho en Barranquilla</h2>
+<p class="about-text">
+Creemos firmemente en el poder del diseño artesanal local y el liderazgo femenino. Cada pieza de SAVÉLLE es producida localmente bajo los más estrictos estándares de slow fashion, valorando la suprema calidad de cada costura por encima de la producción masiva.
+</p>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+<div class="footer-top">
+<span class="brand-logo" style="font-size: 1.6rem;" onclick="resetToHome()">SAVÉLLE</span>
+</div>
+
+<div class="footer-columns">
+<div class="footer-col">
+<h4>Servicio al Cliente</h4>
+<ul>
+<li><a onclick="openWhatsAppDirect()">Contáctanos</a></li>
+<li><a onclick="openModal('returnModal')">Devoluciones</a></li>
+<li><a onclick="openModal('shippingModal')">Envíos</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Compañía</h4>
+<ul>
+<li><a onclick="openModal('storyModal')">Nuestra Historia</a></li>
+<li><a onclick="resetToHome(); window.scrollTo({top:0, behavior:'smooth'})">Lookbook</a></li>
+<li><a onclick="openModal('termsModal')">Privacidad & Términos</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Filosofía</h4>
+<p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">El arte de cautivar sin palabras a través del lujo atemporal y consciente.</p>
+</div>
+</div>
+
+<div class="footer-bottom">
+<span>&copy; 2026 SAVÉLLE&trade;</span>
+<span>CRÉDITOS DEL SITIO</span>
+<span>HECHO EN BARRANQUILLA</span>
+</div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+<div class="cart-header">
+<h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 400;">Bolsa de Compras</h3>
+<button class="drawer-close" id="closeCartBtn">&times;</button>
+</div>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-footer">
+<div class="cart-input-group">
+<label for="clientName">Nombre y Apellido *</label>
+<input type="text" id="clientName" placeholder="Tu nombre completo" required>
+</div>
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.9rem;">
+<span>Total:</span>
+<span id="cartTotal" style="font-weight: 500;">$0 COP</span>
+</div>
+
+<button class="checkout-btn" onclick="checkoutWhatsApp()">COMPRAR VÍA WHATSAPP</button>
+</div>
+</div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<div class="whatsapp-float" onclick="openWhatsAppDirect()" title="Atención personalizada">
+<svg viewBox="0 0 24 24">
+<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+</svg>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast-msg" id="toastMsg">Artículo agregado al carrito</div>
+
+<script>
+const products = [
+// VESTIDOS
+{ id: 1, name: "Vestido Lino Champagne", category: "Vestidos", price: 280000, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80", description: "Vestido largo de silueta fluida confeccionado artesanalmente.", materials: "100% Lino europeo.", available: true, visible: true },
+{ id: 2, name: "Vestido Midi Seda Marfil", category: "Vestidos", price: 320000, img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=600&q=80", description: "Corte midi con caída sutil y tirantes finos.", materials: "Seda sintética mate.", available: true, visible: true },
+{ id: 3, name: "Vestido Gala Nude", category: "Vestidos", price: 450000, img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80", description: "Elegante vestido largo para ocasiones especiales.", materials: "Satén de alta costura.", available: false, visible: true },
+{ id: 4, name: "Vestido Túnica playera", category: "Vestidos", price: 210000, img: "https://images.unsplash.com/photo-1502716119720-b23a93e5fb1b?auto=format&fit=crop&w=600&q=80", description: "Diseño fresco y relajado en lino olan.", materials: "100% Lino liviano.", available: true, visible: true },
+{ id: 5, name: "Vestido Cruzado Rose", category: "Vestidos", price: 295000, img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80", description: "Estilo cruzado ajustable con lazo lateral.", materials: "Mezcla de lino y viscosa.", available: true, visible: true },
+{ id: 6, name: "Vestido Minimal Negro", category: "Vestidos", price: 310000, img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=600&q=80", description: "Silueta estructurada de líneas puras.", materials: "Crepe sastrero premium.", available: true, visible: true },
+{ id: 7, name: "Vestido Halter Ivory", category: "Vestidos", price: 270000, img: "https://images.unsplash.com/photo-1550639525-c97d455acf70?auto=format&fit=crop&w=600&q=80", description: "Cuello halter con espalda descubierta.", materials: "Lino elastizado.", available: true, visible: true },
+{ id: 8, name: "Vestido Asimétrico Gold", category: "Vestidos", price: 340000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Corte único con un solo hombro descubierto.", materials: "Satén pesado mate.", available: true, visible: true },
+{ id: 9, name: "Vestido Bohemio Chic", category: "Vestidos", price: 260000, img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=600&q=80", description: "Detalles artesanales en costura.", materials: "Algodón y lino.", available: true, visible: true },
+
+// FALDAS
+{ id: 10, name: "Falda Midi Lujo", category: "Faldas", price: 190000, img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80", description: "Falda midi con caída impecable.", materials: "Lino y viscosa.", available: true, visible: true },
+{ id: 11, name: "Falda Larga Sastrera", category: "Faldas", price: 220000, img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80", description: "Corte recto con abertura trasera.", materials: "100% Lino pesado.", available: true, visible: true },
+{ id: 12, name: "Falda Corta Plizada", category: "Faldas", price: 150000, img: "https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=600&q=80", description: "Plizado fino con pretina estructurada.", materials: "Seda sintética.", available: true, visible: true },
+{ id: 13, name: "Falda Oversize Crepe", category: "Faldas", price: 205000, img: "https://images.unsplash.com/photo-1618244972963-fb516776962f?auto=format&fit=crop&w=600&q=80", description: "Estilo moderno y cómodo.", materials: "Crepe suave.", available: true, visible: true },
+{ id: 14, name: "Falda Cruzada Veraniega", category: "Faldas", price: 175000, img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80", description: "Ligera y fresca con nudo lateral.", materials: "Lino olan.", available: true, visible: true },
+{ id: 15, name: "Falda Tubo Minimal", category: "Faldas", price: 185000, img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80", description: "Diseño clásico de oficina elegante.", materials: "Algodón elastizado.", available: false, visible: true },
+{ id: 16, name: "Falda Asimétrica Lino", category: "Faldas", price: 210000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Bajo escalonado y fluido.", materials: "100% Lino.", available: true, visible: true },
+{ id: 17, name: "Falda Satén Champagne", category: "Faldas", price: 230000, img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80", description: "Brillo sutil al caminó.", materials: "Satén fluido.", available: true, visible: true },
+{ id: 18, name: "Falda Estructurada Marfil", category: "Faldas", price: 195000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Estructura firme con bolsillos ocultos.", materials: "Lino sastrero.", available: true, visible: true },
+
+// CROP-TOPS
+{ id: 19, name: "Crop-Top Seda Marfil", category: "Crop-tops", price: 140000, img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80", description: "Diseño minimalista de líneas limpias.", materials: "Seda sintética mate.", available: true, visible: true },
+{ id: 20, name: "Crop-Top Lino Asimétrico", category: "Crop-tops", price: 130000, img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80", description: "Tirante único estructurado.", materials: "100% Lino.", available: true, visible: true },
+{ id: 21, name: "Crop-Top Corset Nude", category: "Crop-tops", price: 165000, img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80", description: "Varillas internas de soporte sutil.", materials: "Lino y algodón.", available: true, visible: true },
+{ id: 22, name: "Crop-Top Escote Halter", category: "Crop-tops", price: 125000, img: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=600&q=80", description: "Frescura y elegancia urbana.", materials: "Viscosa premium.", available: true, visible: true },
+{ id: 23, name: "Top Tubo Minimalista", category: "Crop-tops", price: 110000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Básico esencial de alta costura.", materials: "Algodón peinado.", available: true, visible: true },
+{ id: 24, name: "Crop-Top con Lazo", category: "Crop-tops", price: 145000, img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80", description: "Detalle de lazo ajustable en espalda.", materials: "Lino olan.", available: true, visible: true },
+{ id: 25, name: "Crop-Top Texturizado", category: "Crop-tops", price: 155000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Tejido con relieve sutil.", materials: "Algodón texturizado.", available: true, visible: true },
+{ id: 26, name: "Crop-Top Satén Gold", category: "Crop-tops", price: 170000, img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80", description: "Acabado brillante elegante.", materials: "Satén.", available: false, visible: true },
+{ id: 27, name: "Crop-Top Off-Shoulder", category: "Crop-tops", price: 135000, img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80", description: "Hombros descubiertos romántico.", materials: "Lino suave.", available: true, visible: true },
+
+// PANTALONES
+{ id: 28, name: "Pantalón Fluido Palazzo", category: "Pantalones", price: 230000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Corte ancho con movimiento fluido.", materials: "Lino olan liviano.", available: true, visible: true },
+{ id: 29, name: "Pantalón Sastrero Ivo", category: "Pantalones", price: 250000, img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80", description: "Pinzas frontales y caída recta.", materials: "Crepe sastrero.", available: true, visible: true },
+{ id: 30, name: "Pantalón Wide Leg Lino", category: "Pantalones", price: 240000, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80", description: "Pretina alta estructurada.", materials: "100% Lino.", available: true, visible: true },
+{ id: 31, name: "Pantalón Slim High-Rise", category: "Pantalones", price: 215000, img: "https://images.unsplash.com/photo-1584370848042-9a00b809a473?auto=format&fit=crop&w=600&q=80", description: "Estilo entallado de tiro alto.", materials: "Algodón y elastano.", available: true, visible: true },
+{ id: 32, name: "Pantalón Cónico Champagne", category: "Pantalones", price: 225000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Diseño elegante y versátil.", materials: "Lino y viscosa.", available: true, visible: true },
+{ id: 33, name: "Pantalón Casual Pleat", category: "Pantalones", price: 235000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Con pliegues frontales decorativos.", materials: "Lino suave.", available: true, visible: true },
+{ id: 34, name: "Pantalón Cargo Lujo", category: "Pantalones", price: 260000, img: "https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=600&q=80", description: "Bolsillos discretos de alta gama.", materials: "Lino sastrero pesado.", available: false, visible: true },
+{ id: 35, name: "Pantalón Relaxed Fit", category: "Pantalones", price: 205000, img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80", description: "Comodidad absoluta con estilo.", materials: "Viscosa.", available: true, visible: true },
+{ id: 36, name: "Pantalón Palazzo Satinado", category: "Pantalones", price: 280000, img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80", description: "Movimiento y brillo sofisticado.", materials: "Satén fluido.", available: true, visible: true },
+
+// SHORTS
+{ id: 37, name: "Short Lino Estructurado", category: "Shorts", price: 160000, img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=600&q=80", description: "Short sastrero de corte impecable.", materials: "100% Lino local.", available: true, visible: true },
+{ id: 38, name: "Short Tiro Alto Marfil", category: "Shorts", price: 150000, img: "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=600&q=80", description: "Con pinzas y presillas para cinturón.", materials: "Lino y algodón.", available: true, visible: true },
+{ id: 39, name: "Short Casual Nude", category: "Shorts", price: 140000, img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80", description: "Ideal para días cálidos de verano.", materials: "Viscosa lino.", available: true, visible: true },
+{ id: 40, name: "Short Sastrero con Lazo", category: "Shorts", price: 170000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Incluye cinturón de tela ajustable.", materials: "Lino sastrero.", available: true, visible: true },
+{ id: 41, name: "Short Deportivo Lujo", category: "Shorts", price: 130000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Corte relajado y cómodo.", materials: "Algodón premium.", available: true, visible: true },
+{ id: 42, name: "Short Plizado Champagne", category: "Shorts", price: 165000, img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80", description: "Detalle de tablones frontales.", materials: "Crepe.", available: true, visible: true },
+{ id: 43, name: "Short Lino Negro", category: "Shorts", price: 155000, img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=600&q=80", description: "Esencial nocturno fresco.", materials: "100% Lino.", available: false, visible: true },
+{ id: 44, name: "Short Cintura Ajustable", category: "Shorts", price: 145000, img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80", description: "Elástico posterior oculto.", materials: "Lino olan.", available: true, visible: true },
+{ id: 45, name: "Short Tailored Gold", category: "Shorts", price: 180000, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80", description: "Botonadura metálica exclusiva.", materials: "Lino pesado.", available: true, visible: true },
+
+// BLUSAS
+{ id: 46, name: "Blusa Encaje Sensual", category: "Blusas", price: 180000, img: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=600&q=80", description: "Detalles en encaje fino y transparencias sutiles.", materials: "Encaje chantilly y algodón.", available: true, visible: true },
+{ id: 47, name: "Blusa Lino Oversize", category: "Blusas", price: 195000, img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80", description: "Corte amplio con mangas abullonadas.", materials: "100% Lino europeo.", available: true, visible: true },
+{ id: 48, name: "Blusa Cuello V Satén", category: "Blusas", price: 210000, img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=600&q=80", description: "Caída sedosa y elegante.", materials: "Satén mate.", available: true, visible: true },
+{ id: 49, name: "Blusa Romántica Volantes", category: "Blusas", price: 185000, img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80", description: "Detalle de volantes en hombros.", materials: "Algodón y lino.", available: true, visible: true },
+{ id: 50, name: "Blusa Minimalista Marfil", category: "Blusas", price: 160000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Diseño limpio sin cuello.", materials: "Viscosa.", available: true, visible: true },
+{ id: 51, name: "Blusa Manga Larga Lino", category: "Blusas", price: 200000, img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80", description: "Puños estructurados con botón nácar.", materials: "100% Lino.", available: true, visible: true },
+{ id: 52, name: "Blusa Escote Bardot", category: "Blusas", price: 175000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Hombros al descubierto refinados.", materials: "Algodón elastizado.", available: false, visible: true },
+{ id: 53, name: "Blusa Transparencia Chic", category: "Blusas", price: 190000, img: "https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=600&q=80", description: "Efecto gasa de alta costura.", materials: "Gasa de seda sintética.", available: true, visible: true },
+{ id: 54, name: "Blusa Cruzada Elegance", category: "Blusas", price: 215000, img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80", description: "Cruzado frontal con ajuste lateral.", materials: "Satén fluido.", available: true, visible: true },
+
+// ACCESORIOS (Sandalias, Correas, Fajones, Bolsos)
+{ id: 55, name: "Cinturón Cuero Minimal", category: "Accesorios", price: 95000, img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80", description: "Accesorio en cuero genuino con hebilla metálica.", materials: "100% Cuero bovino.", available: true, visible: true },
+{ id: 56, name: "Bolso Tote de Lino & Cuero", category: "Accesorios", price: 320000, img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80", description: "Bolso espacioso hecho a mano.", materials: "Lino y asas de cuero.", available: true, visible: true },
+{ id: 57, name: "Sandalias Planas de Lujo", category: "Accesorios", price: 210000, img: "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=600&q=80", description: "Sandalias de tiras finas en cuero.", materials: "Cuero genuino.", available: true, visible: true },
+{ id: 58, name: "Fajón Sastrero Ancho", category: "Accesorios", price: 120000, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", description: "Fajón estilizador de cintura.", materials: "Lino sastrero reforzado.", available: true, visible: true },
+{ id: 59, name: "Bolso Clutch de Mano", category: "Accesorios", price: 240000, img: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", description: "Clutch rígido con cierre magnético dorado.", materials: "Satén y herrajes metálicos.", available: true, visible: true },
+{ id: 60, name: "Sandalias Tacón Bajo Nude", category: "Accesorios", price: 280000, img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80", description: "Tacón cómodo y elegante para eventos.", materials: "Cuero napa.", available: false, visible: true },
+{ id: 61, name: "Correa Fina Dorada", category: "Accesorios", price: 85000, img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80", description: "Cinto delgado con hebilla minimalista.", materials: "Cuero y aleación.", available: true, visible: true },
+{ id: 62, name: "Bolso Bandolera Minimal", category: "Accesorios", price: 290000, img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", description: "Bolso compacto con correa ajustable.", materials: "100% Cuero bovino.", available: true, visible: true },
+{ id: 63, name: "Fajón Corsetero de Lino", category: "Accesorios", price: 135000, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", description: "Fajón con cordones ajustables.", materials: "Lino y ojales metálicos.", available: true, visible: true },
+
+// FRAGANCIAS
+{ id: 64, name: "Perfume SAVÉLLE L'Or", category: "Fragancias", price: 380000, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80", description: "Notas florales blancas con fondo ambarino y vainilla sutil.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+{ id: 65, name: "Fragancia Esencia de Lino", category: "Fragancias", price: 340000, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80", description: "Aroma fresco inspirada en la brisa de Barranquilla.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
+{ id: 66, name: "Perfume Nuit Blanche", category: "Fragancias", price: 410000, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", description: "Notas intensas de almizcle, jazmín y madera de sándalo.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+{ id: 67, name: "Fragancia Rose Sensation", category: "Fragancias", price: 360000, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "Extracto delicado de rosas de Bulgaria y peonías.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
+{ id: 68, name: "Perfume Gold Elixir", category: "Fragancias", price: 430000, img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80", description: "Aroma oriental amaderado con destellos dorados.", materials: "Extracto de perfume 100ml.", available: false, visible: true },
+{ id: 69, name: "Fragancia Citrus Mambo", category: "Fragancias", price: 310000, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80", description: "Notas cítricas chispeantes de bergamota y mandarina.", materials: "Eau de Toilette 100ml.", available: true, visible: true },
+{ id: 70, name: "Perfume Velvet Musk", category: "Fragancias", price: 390000, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80", description: "Suavidad aterciopelada de almizcle blanco y flor de naranjo.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+{ id: 71, name: "Fragancia Ambre Noir", category: "Fragancias", price: 420000, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", description: "Profundidad mística de ámbar gris y especias finas.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
+{ id: 72, name: "Perfume Pure Essence", category: "Fragancias", price: 350000, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "La pureza minimalista embotellada.", materials: "Extracto de perfume 100ml.", available: true, visible: true }
+];
+
+let cart = [];
+let selectedSize = 'S';
+let currentCategory = '';
+
+const openMenuBtn = document.getElementById('openMenuBtn');
+const closeMenuBtn = document.getElementById('closeMenuBtn');
+const drawer = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+const openShopBtn = document.getElementById('openShopBtn');
+const backToMenuBtn = document.getElementById('backToMenuBtn');
+const mainNavPanel = document.getElementById('mainNavPanel');
+const shopSubPanel = document.getElementById('shopSubPanel');
+
+const openCartBtn = document.getElementById('openCartBtn');
+const closeCartBtn = document.getElementById('closeCartBtn');
+const cartDrawer = document.getElementById('cartDrawer');
+const productDetailModal = document.getElementById('productDetailModal');
+
+const heroSection = document.getElementById('heroSection');
+const homeCategories = document.getElementById('homeCategories');
+const aboutSection = document.getElementById('about');
+const originSection = document.getElementById('origin');
+const collectionSection = document.getElementById('collectionSection');
+
+openMenuBtn.addEventListener('click', () => {
+drawer.classList.add('active');
+drawerOverlay.classList.add('active');
+});
+
+function closeDrawer() {
+drawer.classList.remove('active');
+drawerOverlay.classList.remove('active');
+shopSubPanel.classList.remove('active');
+mainNavPanel.style.display = 'block';
+}
+
+closeMenuBtn.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', () => {
+closeDrawer();
+cartDrawer.classList.remove('active');
+closeProductDetail();
+closeAllModals();
+});
+
+openShopBtn.addEventListener('click', () => {
+mainNavPanel.style.display = 'none';
+shopSubPanel.classList.add('active');
+});
+
+backToMenuBtn.addEventListener('click', () => {
+shopSubPanel.classList.remove('active');
+mainNavPanel.style.display = 'block';
+});
+
+function openModal(modalId) {
+document.getElementById(modalId).classList.add('active');
+drawerOverlay.classList.add('active');
+closeDrawer();
+}
+
+function closeModal(modalId) {
+document.getElementById(modalId).classList.remove('active');
+drawerOverlay.classList.remove('active');
+}
+
+function closeAllModals() {
+document.querySelectorAll('.generic-modal').forEach(m => m.classList.remove('active'));
+}
+
+function resetToHome() {
+closeDrawer();
+closeAllModals();
+closeProductDetail();
+cartDrawer.classList.remove('active');
+collectionSection.classList.remove('active');
+heroSection.style.display = 'block';
+homeCategories.style.display = 'block';
+aboutSection.style.display = 'block';
+originSection.style.display = 'block';
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const track = document.getElementById('carouselTrack');
+const dots = document.querySelectorAll('.dot');
+let currentIndex = 0;
+let startX = 0;
+let isDragging = false;
+
+function setSlidePosition(index) {
+track.style.transform = `translateX(-${index * 100}%)`;
+dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+}
+
+if (track) {
+track.addEventListener('touchstart', touchStart);
+track.addEventListener('touchend', touchEnd);
+track.addEventListener('touchmove', touchMove);
+track.addEventListener('mousedown', touchStart);
+track.addEventListener('mouseup', touchEnd);
+track.addEventListener('mouseleave', touchEnd);
+track.addEventListener('mousemove', touchMove);
+}
+
+function touchStart(e) {
+isDragging = true;
+startX = getPositionX(e);
+}
+
+function touchMove(e) {
+if (!isDragging) return;
+const currentPosition = getPositionX(e);
+const diff = currentPosition - startX;
+if (Math.abs(diff) > 50) {
+if (diff < 0 && currentIndex < 2) currentIndex++;
+else if (diff > 0 && currentIndex > 0) currentIndex--;
+setSlidePosition(currentIndex);
+isDragging = false;
+}
+}
+
+function touchEnd() {
+isDragging = false;
+}
+
+function getPositionX(e) {
+return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+}
+
+dots.forEach(dot => {
+dot.addEventListener('click', (e) => {
+currentIndex = parseInt(e.target.dataset.index);
+setSlidePosition(currentIndex);
+});
+});
+
+setInterval(() => {
+currentIndex = (currentIndex + 1) % 3;
+setSlidePosition(currentIndex);
+}, 5000);
+
+function filterCategory(cat) {
+closeDrawer();
+closeAllModals();
+currentCategory = cat;
+
+heroSection.style.display = 'none';
+homeCategories.style.display = 'none';
+aboutSection.style.display = 'none';
+originSection.style.display = 'none';
+
+collectionSection.classList.add('active');
+document.getElementById('catalogTitle').innerText = cat.toUpperCase();
+
+const filtered = products.filter(p => p.visible && p.category === cat);
+renderProducts(filtered);
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderProducts(items) {
+const productGrid = document.getElementById('productGrid');
+productGrid.innerHTML = '';
+
+if (items.length === 0) {
+productGrid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color:var(--text-muted); padding:40px;">No hay productos disponibles en esta categoría actualmente.</p>';
+return;
+}
+
+items.forEach(product => {
+const card = document.createElement('div');
+card.className = `product-card ${!product.available ? 'sold-out' : ''}`;
+card.onclick = () => {
+openProductDetail(product.id);
+};
+
+card.innerHTML = `
+<div class="product-img-wrapper">
+<img src="${product.img}" alt="${product.name}">
+${!product.available ? '<div class="sold-out-badge">Agotado</div>' : ''}
+</div>
+<div class="product-name">${product.name}</div>
+<div class="product-price">$${product.price.toLocaleString('es-CO')} COP</div>
+<button class="add-to-cart-btn" onclick="event.stopPropagation(); openProductDetail(${product.id})">
+${product.available ? 'Ver Detalle' : 'Agotado'}
+</button>
+`;
+productGrid.appendChild(card);
+});
+}
+
+function getSizeFitness(category) {
+if (category === 'Vestidos' || category === 'Blusas' || category === 'Crop-tops') {
+return `
+<div class="size-selector">
+<button class="size-btn" onclick="selectSize('XS', this)">XS</button>
+<button class="size-btn selected" onclick="selectSize('S', this)">S</button>
+<button class="size-btn" onclick="selectSize('M', this)">M</button>
+<button class="size-btn" onclick="selectSize('L', this)">L</button>
+<button class="size-btn" onclick="selectSize('XL', this)">XL</button>
+</div>
+<div class="size-guide-box">
+<strong>Guía de Tallas (Superior - Busto / Cintura):</strong><br>
+XS: Busto 82cm | Cintura 64cm<br>
+S: Busto 86cm | Cintura 68cm<br>
+M: Busto 90cm | Cintura 72cm<br>
+L: Busto 95cm | Cintura 77cm<br>
+XL: Busto 100cm | Cintura 82cm
+</div>
+`;
+} else if (category === 'Pantalones' || category === 'Faldas' || category === 'Shorts') {
+return `
+<div class="size-selector">
+<button class="size-btn" onclick="selectSize('6 (XS)', this)">6 (XS)</button>
+<button class="size-btn selected" onclick="selectSize('8 (S)', this)">8 (S)</button>
+<button class="size-btn" onclick="selectSize('10 (M)', this)">10 (M)</button>
+<button class="size-btn" onclick="selectSize('12 (L)', this)">12 (L)</button>
+<button class="size-btn" onclick="selectSize('14 (XL)', this)">14 (XL)</button>
+</div>
+<div class="size-guide-box">
+<strong>Guía de Tallas (Inferior - Cintura / Cadera):</strong><br>
+6 (XS): Cintura 62cm | Cadera 90cm<br>
+8 (S): Cintura 66cm | Cadera 94cm<br>
+10 (M): Cintura 70cm | Cadera 98cm<br>
+12 (L): Cintura 75cm | Cadera 103cm<br>
+14 (XL): Cintura 80cm | Cadera 108cm
+</div>
+`;
+} else if (category === 'Accesorios') {
+return `
+<div class="size-selector">
+<button class="size-btn selected" onclick="selectSize('Única', this)">Única / Estándar</button>
+</div>
+<div class="size-guide-box">
+<strong>Guía de Accesorios:</strong><br>
+Piezas ajustables o de medida estándar de alta durabilidad. Calzado disponible en numeración nacional del 35 al 39 (especificar al ordenar).
+</div>
+`;
+} else {
+return `
+<div class="size-selector">
+<button class="size-btn selected" onclick="selectSize('100ml', this)">100ml (Estándar)</button>
+</div>
+<div class="size-guide-box">
+<strong>Presentación Perfumería:</strong><br>
+Frasco de vidrio de alta pureza con atomizador de lujo de 100ml.
+</div>
+`;
+}
+}
+
+function openProductDetail(productId) {
+const product = products.find(p => p.id === productId);
+const container = document.getElementById('detailContainer');
+
+if (product.category === 'Pantalones' || product.category === 'Faldas' || product.category === 'Shorts') {
+selectedSize = '8 (S)';
+} else if (product.category === 'Accesorios') {
+selectedSize = 'Única';
+} else if (product.category === 'Fragancias') {
+selectedSize = '100ml';
+} else {
+selectedSize = 'S';
+}
+
+container.innerHTML = `
+<div class="detail-img-box">
+<img src="${product.img}" alt="${product.name}">
+</div>
+<div class="detail-info">
+<h2>${product.name}</h2>
+<div class="detail-price">$${product.price.toLocaleString('es-CO')} COP</div>
+<p class="detail-desc">${product.description}</p>
+
+<div class="detail-section-title">Materiales y Composición</div>
+<p class="detail-desc" style="margin-bottom: 15px;">${product.materials}</p>
+
+<div class="detail-section-title">Selección</div>
+${getSizeFitness(product.category)}
+
+${product.available ?
+`<button class="detail-add-btn" onclick="addToCartFromDetail(${product.id})">AGREGAR AL CARRITO</button>` :
+`<button class="detail-add-btn" style="background:#ccc; cursor:not-allowed;" disabled>PRODUCTO AGOTADO</button>`
+}
+</div>
+`;
+
+productDetailModal.classList.add('active');
+drawerOverlay.classList.add('active');
+}
+
+function selectSize(size, btn) {
+selectedSize = size;
+document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+btn.classList.add('selected');
+}
+
+function closeProductDetail() {
+productDetailModal.classList.remove('active');
+drawerOverlay.classList.remove('active');
+}
+
+function addToCartFromDetail(productId) {
+const prod = products.find(p => p.id === productId);
+if (!prod.available) return;
+
+const cartItemId = `${productId}-${selectedSize}`;
+const existing = cart.find(item => item.cartItemId === cartItemId);
+
+if (existing) {
+existing.qty++;
+} else {
+cart.push({ ...prod, cartItemId, size: selectedSize, qty: 1 });
+}
+
+updateCartUI();
+closeProductDetail();
+showToast("Artículo agregado al carrito");
+}
+
+function updateCartUI() {
+const cartCount = document.getElementById('cartCount');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+
+const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+cartCount.innerText = totalItems;
+cartTotal.innerText = `$${totalPrice.toLocaleString('es-CO')} COP`;
+
+cartItems.innerHTML = cart.length ? '' : '<p style="text-align:center; color:#888; font-size:0.85rem; margin-top:30px;">Tu bolsa está vacía</p>';
+
+cart.forEach(item => {
+const div = document.createElement('div');
+div.className = 'cart-item';
+div.innerHTML = `
+<img src="${item.img}" alt="${item.name}">
+<div class="cart-item-details">
+<div style="font-size: 0.8rem; font-weight: 500;">${item.name}</div>
+<div style="font-size: 0.75rem; color: #666;">Opción: ${item.size} | $${item.price.toLocaleString('es-CO')} x ${item.qty}</div>
+</div>
+`;
+cartItems.appendChild(div);
+});
+}
+
+openCartBtn.addEventListener('click', () => {
+cartDrawer.classList.add('active');
+drawerOverlay.classList.add('active');
+});
+
+closeCartBtn.addEventListener('click', () => {
+cartDrawer.classList.remove('active');
+drawerOverlay.classList.remove('active');
+});
+
+function checkoutWhatsApp() {
+const clientName = document.getElementById('clientName').value.trim();
+
+if (!clientName) {
+alert("Por favor ingresa tu Nombre y Apellido para continuar.");
+return;
+}
+
+if (cart.length === 0) {
+alert("Tu carrito está vacío.");
+return;
+}
+
+let message = `¡Hola SAVÉLLE! Deseo realizar la siguiente compra:\n\n`;
+message += `👤 *Cliente:* ${clientName}\n`;
+message += `🛍️ *Detalle del Pedido:*\n`;
+
+cart.forEach(item => {
+message += `• ${item.name} (Talla/Opción: ${item.size}) x${item.qty} — $${(item.price * item.qty).toLocaleString('es-CO')} COP\n`;
+});
+
+const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+message += `\n💳 *Total a Pagar:* $${totalPrice.toLocaleString('es-CO')} COP\n`;
+message += `📍 *Origen:* Boutique Virtual SAVÉLLE`;
+
+const phone = "573018738631";
+const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+window.open(url, '_blank');
+}
+
+function openWhatsAppDirect() {
+const phone = "573018738631";
+const message = "¡Hola SAVÉLLE! Deseo recibir atención personalizada sobre sus prendas y fragancias.";
+window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function showToast(text) {
+const toast = document.getElementById('toastMsg');
+toast.innerText = text;
+toast.classList.add('show');
+setTimeout(() => toast.classList.remove('show'), 2500);
+}
+</script>
 </body>
 </html>
