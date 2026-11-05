@@ -154,7 +154,7 @@ transform: translateX(0);
 display: flex;
 justify-content: space-between;
 align-items: center;
-margin-bottom: 40px;
+margin-bottom: 30px;
 }
 .drawer-close {
 background: none;
@@ -173,7 +173,7 @@ letter-spacing: 2px;
 text-transform: uppercase;
 padding-bottom: 15px;
 border-bottom: 1px solid rgba(0,0,0,0.08);
-margin-bottom: 25px;
+margin-bottom: 20px;
 }
 .drawer-top-links a {
 color: var(--text-dark);
@@ -193,7 +193,7 @@ display: block;
 }
 
 .drawer-item {
-padding: 16px 0;
+padding: 15px 0;
 border-bottom: 1px solid rgba(0,0,0,0.05);
 display: flex;
 justify-content: space-between;
@@ -212,6 +212,49 @@ margin-bottom: 20px;
 display: inline-block;
 cursor: pointer;
 letter-spacing: 2px;
+}
+
+/* SECCIÓN SOCIAL EN MENÚ */
+.drawer-social-section {
+margin-top: 30px;
+padding-top: 20px;
+border-top: 1px solid rgba(0,0,0,0.08);
+text-align: center;
+}
+.drawer-social-title {
+font-size: 0.7rem;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--text-muted);
+margin-bottom: 15px;
+}
+.drawer-social-icons {
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+.social-icon-link {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+border: 1px solid var(--text-dark);
+display: flex;
+align-items: center;
+justify-content: center;
+background: transparent;
+color: var(--text-dark);
+text-decoration: none;
+transition: all 0.3s ease;
+}
+.social-icon-link:hover {
+background: var(--text-dark);
+color: #fff;
+border-color: var(--text-dark);
+}
+.social-icon-link svg {
+width: 16px;
+height: 16px;
+fill: currentColor;
 }
 
 /* HERO CAROUSEL */
@@ -318,7 +361,7 @@ padding-bottom: 3px;
 display: inline-block;
 }
 
-/* MODALES GENERALES */
+/* MODALES GENERALES (HISTORIA, BARRANQUILLA, CONTACTO, ETC.) */
 .generic-modal {
 position: fixed;
 top: 0;
@@ -355,6 +398,49 @@ margin-top: 20px;
 }
 .modal-body-text p {
 margin-bottom: 15px;
+}
+
+/* TARJETAS DE CONTACTO EN MODAL */
+.contact-options-list {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 30px;
+}
+.contact-card-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 18px 20px;
+background: var(--bg-champagne);
+border: 1px solid rgba(197, 160, 89, 0.3);
+text-decoration: none;
+color: var(--text-dark);
+transition: all 0.3s ease;
+}
+.contact-card-item:hover {
+border-color: var(--accent-gold);
+transform: translateY(-2px);
+}
+.contact-card-info {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+.contact-card-info svg {
+width: 22px;
+height: 22px;
+fill: var(--accent-gold);
+}
+.contact-card-title {
+font-size: 0.8rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+font-weight: 500;
+}
+.contact-card-sub {
+font-size: 0.75rem;
+color: var(--text-muted);
 }
 
 /* HOME CATEGORIES GRID */
@@ -467,6 +553,17 @@ position: absolute;
 top: 15px;
 right: 15px;
 background: var(--text-dark);
+color: #fff;
+font-size: 0.65rem;
+letter-spacing: 1.5px;
+padding: 5px 10px;
+text-transform: uppercase;
+}
+.featured-badge {
+position: absolute;
+top: 15px;
+left: 15px;
+background: var(--accent-gold);
 color: #fff;
 font-size: 0.65rem;
 letter-spacing: 1.5px;
@@ -631,7 +728,7 @@ transition: opacity 0.3s;
 opacity: 0.85;
 }
 
-/* MADE IN BARRANQUILLA */
+/* MADE IN BARRANQUILLA SECTION */
 .origin-section {
 padding: 70px 8%;
 background: var(--bg-champagne);
@@ -881,14 +978,15 @@ transform: translateX(-50%) translateY(0);
 <span>COMPRAR</span>
 <span>&rsaquo;</span>
 </div>
-<a href="#about" class="drawer-item" onclick="closeDrawer()">NUESTRA HISTORIA</a>
-<a href="#origin" class="drawer-item" onclick="closeDrawer()">HECHO EN BARRANQUILLA</a>
-<a href="#footer" class="drawer-item" onclick="closeDrawer()">CONTACTO</a>
+<div class="drawer-item" onclick="openModal('storyModal')">NUESTRA HISTORIA</div>
+<div class="drawer-item" onclick="openModal('originModal')">HECHO EN BARRANQUILLA</div>
+<div class="drawer-item" onclick="openModal('contactModal')">CONTACTO</div>
 </div>
 
-<!-- SUB PANEL COMPRAR -->
+<!-- SUB PANEL COMPRAR CON CATEGORÍA "SETS" -->
 <div class="sub-panel" id="shopSubPanel">
 <span class="back-btn" id="backToMenuBtn">&lsaquo; ATRÁS</span>
+<div class="drawer-item" onclick="filterCategory('Sets')">SETS (CONJUNTOS)</div>
 <div class="drawer-item" onclick="filterCategory('Vestidos')">VESTIDOS</div>
 <div class="drawer-item" onclick="filterCategory('Faldas')">FALDAS</div>
 <div class="drawer-item" onclick="filterCategory('Crop-tops')">CROP-TOPS</div>
@@ -897,6 +995,25 @@ transform: translateX(-50%) translateY(0);
 <div class="drawer-item" onclick="filterCategory('Blusas')">BLUSAS</div>
 <div class="drawer-item" onclick="filterCategory('Accesorios')">ACCESORIOS</div>
 <div class="drawer-item" onclick="filterCategory('Fragancias')">FRAGANCIAS</div>
+</div>
+</div>
+
+<!-- SECCIÓN SÍGUENOS EN EL MENÚ -->
+<div class="drawer-social-section">
+<div class="drawer-social-title">Síguenos</div>
+<div class="drawer-social-icons">
+<!-- Instagram -->
+<a href="https://instagram.com" target="_blank" class="social-icon-link" title="Instagram">
+<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
+<!-- TikTok -->
+<a href="https://tiktok.com" target="_blank" class="social-icon-link" title="TikTok">
+<svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+</a>
+<!-- Facebook -->
+<a href="https://facebook.com" target="_blank" class="social-icon-link" title="Facebook">
+<svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.582 9 4.75V8z"/></svg>
+</a>
 </div>
 </div>
 </div>
@@ -927,6 +1044,13 @@ transform: translateX(-50%) translateY(0);
 <h2 class="section-title">EXPLORA NUESTRAS CATEGORÍAS</h2>
 </div>
 <div class="categories-grid">
+<div class="category-card" onclick="filterCategory('Sets')">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Sets">
+<div class="category-card-overlay">
+<h3>SETS</h3>
+<span>Conjuntos Coordinados</span>
+</div>
+</div>
 <div class="category-card" onclick="filterCategory('Vestidos')">
 <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80" alt="Vestidos">
 <div class="category-card-overlay">
@@ -986,7 +1110,7 @@ transform: translateX(-50%) translateY(0);
 </div>
 </section>
 
-<!-- SECCIÓN FUNDADORAS -->
+<!-- SECCIÓN FUNDADORAS (EN INICIO) -->
 <section class="founders-section" id="about">
 <div class="founders-card" onclick="openModal('storyModal')">
 <div class="founders-img-wrapper">
@@ -1014,6 +1138,84 @@ transform: translateX(-50%) translateY(0);
 <p>Concebida en el corazón vibrante de Barranquilla, SAVÉLLE es el fruto de una visión compartida entre Michel Piñeres e Isabella Venegas. Nuestra firma nació no solo como una marca de moda, sino como una propuesta de vida orientada al slow fashion y al lujo atemporal.</p>
 <p>Creemos apasionadamente en redefinir el vestuario femenino a través de piezas que combinan líneas minimalistas, tejidos de la más alta calidad y una confección impecable hecha por manos locales. Para nosotras, cada prenda debe contar una historia de sofisticación sin esfuerzo, pensada para trascender las tendencias efímeras y acompañar a la mujer moderna en cada faceta de su vida.</p>
 <p>Agradecemos profundamente a cada persona que forma parte de este viaje y abraza nuestra visión de elegancia, autenticidad y pasión artesanal.</p>
+</div>
+</div>
+</div>
+
+<!-- MODAL: HECHO EN BARRANQUILLA (INDEPENDIENTE) -->
+<div class="generic-modal" id="originModal">
+<button class="detail-close" onclick="closeModal('originModal')">&times;</button>
+<div class="modal-container" style="text-align: center;">
+<svg class="origin-map" viewBox="0 0 100 120" fill="none" stroke="#c5a059" stroke-width="1.5" style="margin: 0 auto 20px;">
+<path d="M30 10 C 50 5, 70 15, 85 35 C 95 55, 75 80, 50 110 C 25 80, 5 55, 15 35 Z" fill="#f4efe9"/>
+</svg>
+<h2>Hecho en Barranquilla</h2>
+<div class="founders-subtitle">TRADICIÓN & DISEÑO LOCAL</div>
+<div class="modal-body-text" style="text-align: left;">
+<p>Creemos firmemente en el poder del diseño artesanal local y el liderazgo femenino. Cada pieza de SAVÉLLE es producida localmente en Barranquilla bajo los más estrictos estándares de slow fashion, valorando la suprema calidad de cada costura por encima de la producción masiva.</p>
+<p>Nuestros talleres asociados trabajan mano a mano con artesanos y sastres locales, honrando las técnicas tradicionales de costura y fusionándolas con una visión contemporánea y global de la alta costura.</p>
+</div>
+</div>
+</div>
+
+<!-- MODAL: CONTACTO DIRECTO (NUEVO) -->
+<div class="generic-modal" id="contactModal">
+<button class="detail-close" onclick="closeModal('contactModal')">&times;</button>
+<div class="modal-container">
+<h2>Canales de Contacto</h2>
+<div class="founders-subtitle" style="text-align: center;">ATENCIÓN PERSONALIZADA SAVÉLLE</div>
+<div class="modal-body-text" style="text-align: center;">
+<p>Estamos disponibles para atender tus consultas sobre colecciones, pedidos personalizados y asesoría de estilo.</p>
+</div>
+
+<div class="contact-options-list">
+<!-- WhatsApp -->
+<a class="contact-card-item" onclick="openWhatsAppDirect()">
+<div class="contact-card-info">
+<svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+<div>
+<div class="contact-card-title">WhatsApp Oficial</div>
+<div class="contact-card-sub">+57 301 873 8631</div>
+</div>
+</div>
+<span>&rsaquo;</span>
+</a>
+
+<!-- Instagram -->
+href="https://instagram.com" target="_blank" class="contact-card-item">
+<div class="contact-card-info">
+<svg viewBox="0 0 24 24" style="fill:var(--accent-gold);"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+<div>
+<div class="contact-card-title">Instagram</div>
+<div class="contact-card-sub">@savelle.luxury</div>
+</div>
+</div>
+<span>&rsaquo;</span>
+</a>
+
+<!-- TikTok -->
+<a href="https://tiktok.com" target="_blank" class="contact-card-item">
+<div class="contact-card-info">
+<svg viewBox="0 0 24 24" style="fill:var(--accent-gold);"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+<div>
+<div class="contact-card-title">TikTok</div>
+<div class="contact-card-sub">@savelle.official</div>
+</div>
+</div>
+<span>&rsaquo;</span>
+</a>
+
+<!-- Correo Electrónico -->
+<a href="mailto:contacto@savelle.com" class="contact-card-item">
+<div class="contact-card-info">
+<svg viewBox="0 0 24 24" style="fill:var(--accent-gold);"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+<div>
+<div class="contact-card-title">Correo Electrónico</div>
+<div class="contact-card-sub">contacto@savelle.com</div>
+</div>
+</div>
+<span>&rsaquo;</span>
+</a>
 </div>
 </div>
 </div>
@@ -1074,17 +1276,6 @@ transform: translateX(-50%) translateY(0);
 <div class="detail-container" id="detailContainer"></div>
 </div>
 
-<!-- MADE IN BARRANQUILLA SECTION -->
-<section class="origin-section" id="origin">
-<svg class="origin-map" viewBox="0 0 100 120" fill="none" stroke="#c5a059" stroke-width="1.5">
-<path d="M30 10 C 50 5, 70 15, 85 35 C 95 55, 75 80, 50 110 C 25 80, 5 55, 15 35 Z" fill="#f4efe9"/>
-</svg>
-<h2 class="origin-title">Hecho en Barranquilla</h2>
-<p class="about-text">
-Creemos firmemente en el poder del diseño artesanal local y el liderazgo femenino. Cada pieza de SAVÉLLE es producida localmente bajo los más estrictos estándares de slow fashion, valorando la suprema calidad de cada costura por encima de la producción masiva.
-</p>
-</section>
-
 <!-- FOOTER -->
 <footer id="footer">
 <div class="footer-top">
@@ -1105,7 +1296,7 @@ Creemos firmemente en el poder del diseño artesanal local y el liderazgo femeni
 <h4>Compañía</h4>
 <ul>
 <li><a onclick="openModal('storyModal')">Nuestra Historia</a></li>
-<li><a onclick="resetToHome(); window.scrollTo({top:0, behavior:'smooth'})">Lookbook</a></li>
+<li><a onclick="openModal('originModal')">Hecho en Barranquilla</a></li>
 <li><a onclick="openModal('termsModal')">Privacidad & Términos</a></li>
 </ul>
 </div>
@@ -1159,6 +1350,28 @@ Creemos firmemente en el poder del diseño artesanal local y el liderazgo femeni
 
 <script>
 const products = [
+// SETS
+{ id: 100, name: "Set Falda & Crop-Top Lino", category: "Sets", price: 340000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", description: "Conjunto coordinado de falda midi y crop-top de líneas puras.", materials: "100% Lino europeo.", available: true, visible: true },
+{ id: 101, name: "Set Short & Blusa Fresca", category: "Sets", price: 290000, img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=600&q=80", description: "Dúo sofisticado de short sastrero con blusa de corte fluido.", materials: "Lino y viscosa.", available: true, visible: true },
+{ id: 102, name: "Set Pantalón Palazzo & Top Satén", category: "Sets", price: 390000, img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80", description: "Pantalón ancho y top coordinado de seda satinada.", materials: "Satén pesado y lino.", available: true, visible: true },
+{ id: 103, name: "Set Lino Monocromo Champagne", category: "Sets", price: 360000, img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80", description: "Look completo de dos piezas minimalistas.", materials: "100% Lino olan.", available: true, visible: true },
+{ id: 104, name: "Set Falda Larga & Top Corsetero", category: "Sets", price: 375000, img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80", description: "Elegancia de alta gama en un solo look.", materials: "Lino sastrero.", available: true, visible: true },
+{ id: 105, name: "Set Short & Crop-Top Marfil", category: "Sets", price: 280000, img: "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80", description: "Lujo veraniego fresco y artesanal.", materials: "Algodón y lino.", available: true, visible: true },
+{ id: 106, name: "Set Sastrero Pantalón & Chaleco", category: "Sets", price: 410000, img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80", description: "Sastrería femenina de vanguardia.", materials: "Crepe sastrero.", available: false, visible: true },
+{ id: 107, name: "Set Resort Flotante", category: "Sets", price: 320000, img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80", description: "Movimiento orgánico y frescura costera.", materials: "Gasa de lino.", available: true, visible: true },
+{ id: 108, name: "Set Noche Minimal Gold", category: "Sets", price: 420000, img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80", description: "Brillo atenuado de altísima sofisticación.", materials: "Satén de seda.", available: true, visible: true },
+
+// FRAGANCIAS (INICIANDO CON EL SPLASH INSIGNIA)
+{ id: 64, name: "Body Splash SAVÉLLE (Firma de Marca)", category: "Fragancias", price: 180000, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "Aroma insignia de la boutique SAVÉLLE. Notas frescas de lino puro, flor de naranjo y brisa caribeña.", materials: "Body Splash Hidratante 250ml.", available: true, visible: true, featured: true },
+{ id: 65, name: "Perfume SAVÉLLE L'Or", category: "Fragancias", price: 380000, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80", description: "Notas florales blancas con fondo ambarino y vainilla sutil.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+{ id: 66, name: "Fragancia Esencia de Lino", category: "Fragancias", price: 340000, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80", description: "Inspirada en la brisa y elegancia de Barranquilla.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
+{ id: 67, name: "Perfume Nuit Blanche", category: "Fragancias", price: 410000, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", description: "Notas intensas de almizcle, jazmín y madera de sándalo.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+{ id: 68, name: "Fragancia Rose Sensation", category: "Fragancias", price: 360000, img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80", description: "Extracto delicado de rosas de Bulgaria.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
+{ id: 69, name: "Perfume Gold Elixir", category: "Fragancias", price: 430000, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80", description: "Aroma oriental amaderado con destellos dorados.", materials: "Extracto de perfume 100ml.", available: false, visible: true },
+{ id: 70, name: "Fragancia Citrus Mambo", category: "Fragancias", price: 310000, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80", description: "Notas cítricas chispeantes de bergamota.", materials: "Eau de Toilette 100ml.", available: true, visible: true },
+{ id: 71, name: "Perfume Velvet Musk", category: "Fragancias", price: 390000, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", description: "Suavidad aterciopelada de almizcle blanco.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+{ id: 72, name: "Perfume Pure Essence", category: "Fragancias", price: 350000, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "La pureza minimalista embotellada.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
+
 // VESTIDOS
 { id: 1, name: "Vestido Lino Champagne", category: "Vestidos", price: 280000, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80", description: "Vestido largo de silueta fluida confeccionado artesanalmente.", materials: "100% Lino europeo.", available: true, visible: true },
 { id: 2, name: "Vestido Midi Seda Marfil", category: "Vestidos", price: 320000, img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=600&q=80", description: "Corte midi con caída sutil y tirantes finos.", materials: "Seda sintética mate.", available: true, visible: true },
@@ -1234,18 +1447,7 @@ const products = [
 { id: 60, name: "Sandalias Tacón Bajo Nude", category: "Accesorios", price: 280000, img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80", description: "Tacón cómodo y elegante para eventos.", materials: "Cuero napa.", available: false, visible: true },
 { id: 61, name: "Correa Fina Dorada", category: "Accesorios", price: 85000, img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80", description: "Cinto delgado con hebilla minimalista.", materials: "Cuero y aleación.", available: true, visible: true },
 { id: 62, name: "Bolso Bandolera Minimal", category: "Accesorios", price: 290000, img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", description: "Bolso compacto con correa ajustable.", materials: "100% Cuero bovino.", available: true, visible: true },
-{ id: 63, name: "Fajón Corsetero de Lino", category: "Accesorios", price: 135000, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", description: "Fajón con cordones ajustables.", materials: "Lino y ojales metálicos.", available: true, visible: true },
-
-// FRAGANCIAS
-{ id: 64, name: "Perfume SAVÉLLE L'Or", category: "Fragancias", price: 380000, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80", description: "Notas florales blancas con fondo ambarino y vainilla sutil.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
-{ id: 65, name: "Fragancia Esencia de Lino", category: "Fragancias", price: 340000, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80", description: "Aroma fresco inspirada en la brisa de Barranquilla.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
-{ id: 66, name: "Perfume Nuit Blanche", category: "Fragancias", price: 410000, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", description: "Notas intensas de almizcle, jazmín y madera de sándalo.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
-{ id: 67, name: "Fragancia Rose Sensation", category: "Fragancias", price: 360000, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "Extracto delicado de rosas de Bulgaria y peonías.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
-{ id: 68, name: "Perfume Gold Elixir", category: "Fragancias", price: 430000, img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80", description: "Aroma oriental amaderado con destellos dorados.", materials: "Extracto de perfume 100ml.", available: false, visible: true },
-{ id: 69, name: "Fragancia Citrus Mambo", category: "Fragancias", price: 310000, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80", description: "Notas cítricas chispeantes de bergamota y mandarina.", materials: "Eau de Toilette 100ml.", available: true, visible: true },
-{ id: 70, name: "Perfume Velvet Musk", category: "Fragancias", price: 390000, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80", description: "Suavidad aterciopelada de almizcle blanco y flor de naranjo.", materials: "Extracto de perfume 100ml.", available: true, visible: true },
-{ id: 71, name: "Fragancia Ambre Noir", category: "Fragancias", price: 420000, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", description: "Profundidad mística de ámbar gris y especias finas.", materials: "Eau de Parfum 100ml.", available: true, visible: true },
-{ id: 72, name: "Perfume Pure Essence", category: "Fragancias", price: 350000, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "La pureza minimalista embotellada.", materials: "Extracto de perfume 100ml.", available: true, visible: true }
+{ id: 63, name: "Fajón Corsetero de Lino", category: "Accesorios", price: 135000, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", description: "Fajón con cordones ajustables.", materials: "Lino y ojales metálicos.", available: true, visible: true }
 ];
 
 let cart = [];
@@ -1399,7 +1601,7 @@ aboutSection.style.display = 'none';
 originSection.style.display = 'none';
 
 collectionSection.classList.add('active');
-document.getElementById('catalogTitle').innerText = cat.toUpperCase();
+document.getElementById('catalogTitle').innerText = cat === 'Sets' ? 'SETS (CONJUNTOS COORDINADOS)' : cat.toUpperCase();
 
 const filtered = products.filter(p => p.visible && p.category === cat);
 renderProducts(filtered);
@@ -1425,6 +1627,7 @@ openProductDetail(product.id);
 card.innerHTML = `
 <div class="product-img-wrapper">
 <img src="${product.img}" alt="${product.name}">
+${product.featured ? '<div class="featured-badge">Firma SAVÉLLE</div>' : ''}
 ${!product.available ? '<div class="sold-out-badge">Agotado</div>' : ''}
 </div>
 <div class="product-name">${product.name}</div>
@@ -1438,7 +1641,20 @@ productGrid.appendChild(card);
 }
 
 function getSizeFitness(category) {
-if (category === 'Vestidos' || category === 'Blusas' || category === 'Crop-tops') {
+if (category === 'Sets') {
+return `
+<div class="size-selector">
+<button class="size-btn" onclick="selectSize('XS (Top/Falda)', this)">XS</button>
+<button class="size-btn selected" onclick="selectSize('S (Top/Falda)', this)">S</button>
+<button class="size-btn" onclick="selectSize('M (Top/Falda)', this)">M</button>
+<button class="size-btn" onclick="selectSize('L (Top/Falda)', this)">L</button>
+</div>
+<div class="size-guide-box">
+<strong>Guía de Tallas (Sets Coordinados):</strong><br>
+Talla estándar proporcional para prenda superior e inferior. Si necesitas tallas combinadas (ej. Top S / Pantalón M), indícalo al finalizar por WhatsApp.
+</div>
+`;
+} else if (category === 'Vestidos' || category === 'Blusas' || category === 'Crop-tops') {
 return `
 <div class="size-selector">
 <button class="size-btn" onclick="selectSize('XS', this)">XS</button>
@@ -1481,17 +1697,17 @@ return `
 </div>
 <div class="size-guide-box">
 <strong>Guía de Accesorios:</strong><br>
-Piezas ajustables o de medida estándar de alta durabilidad. Calzado disponible en numeración nacional del 35 al 39 (especificar al ordenar).
+Piezas ajustables de medida estándar.
 </div>
 `;
 } else {
 return `
 <div class="size-selector">
-<button class="size-btn selected" onclick="selectSize('100ml', this)">100ml (Estándar)</button>
+<button class="size-btn selected" onclick="selectSize('250ml / 100ml', this)">Estándar</button>
 </div>
 <div class="size-guide-box">
-<strong>Presentación Perfumería:</strong><br>
-Frasco de vidrio de alta pureza con atomizador de lujo de 100ml.
+<strong>Presentación Perfumería & Fragancias:</strong><br>
+Envase de alta calidad con atomizador de lujo exclusivo de la marca.
 </div>
 `;
 }
@@ -1503,10 +1719,12 @@ const container = document.getElementById('detailContainer');
 
 if (product.category === 'Pantalones' || product.category === 'Faldas' || product.category === 'Shorts') {
 selectedSize = '8 (S)';
+} else if (product.category === 'Sets') {
+selectedSize = 'S (Top/Falda)';
 } else if (product.category === 'Accesorios') {
 selectedSize = 'Única';
 } else if (product.category === 'Fragancias') {
-selectedSize = '100ml';
+selectedSize = 'Estándar';
 } else {
 selectedSize = 'S';
 }
@@ -1523,7 +1741,7 @@ container.innerHTML = `
 <div class="detail-section-title">Materiales y Composición</div>
 <p class="detail-desc" style="margin-bottom: 15px;">${product.materials}</p>
 
-<div class="detail-section-title">Selección</div>
+<div class="detail-section-title">Selección de Talla / Opción</div>
 ${getSizeFitness(product.category)}
 
 ${product.available ?
