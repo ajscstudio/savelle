@@ -258,41 +258,99 @@
       transform: scale(1.2);
     }
 
-    /* ABOUT BRAND */
-    .about-section {
-      padding: 70px 8% 50px;
+    /* SECCIÓN FUNDADORAS (SIN BOTONES DE COLECCIÓN) */
+    .founders-section {
+      padding: 80px 8% 60px;
       text-align: center;
       background: var(--bg-light);
     }
-    .brand-symbol {
-      width: 35px;
-      margin-bottom: 15px;
-      opacity: 0.8;
+    .founders-card {
+      max-width: 750px;
+      margin: 0 auto;
+      cursor: pointer;
     }
-    .about-title {
+    .founders-img-wrapper {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      margin: 0 auto 30px;
+      overflow: hidden;
+      background: #f0ece7;
+    }
+    .founders-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .founders-card:hover img {
+      transform: scale(1.02);
+    }
+    .founders-title {
       font-family: var(--font-heading);
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 400;
       letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+    .founders-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
       margin-bottom: 20px;
     }
-    .about-text {
-      font-size: 0.85rem;
-      line-height: 1.8;
+    .founders-brief {
+      font-size: 0.9rem;
+      line-height: 1.9;
       color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 25px;
       font-weight: 300;
+      margin-bottom: 20px;
     }
-    .learn-more-btn {
+    .read-story-link {
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--text-dark);
-      text-decoration: none;
       border-bottom: 1px solid var(--text-dark);
-      padding-bottom: 4px;
+      padding-bottom: 3px;
       display: inline-block;
+    }
+
+    /* VISTA MODAL DISCURSO COMPLETO */
+    .story-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-light);
+      z-index: 1700;
+      overflow-y: auto;
+      display: none;
+      padding: 60px 8%;
+    }
+    .story-modal.active {
+      display: block;
+    }
+    .story-container {
+      max-width: 700px;
+      margin: 40px auto 0;
+      text-align: center;
+    }
+    .story-container h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .story-full-text {
+      font-size: 0.95rem;
+      line-height: 2;
+      color: var(--text-muted);
+      text-align: justify;
+      margin-top: 30px;
+      font-weight: 300;
     }
 
     /* PRODUCT COLLECTION */
@@ -786,18 +844,39 @@
     </div>
   </section>
 
-  <!-- ABOUT BRAND SECTION -->
-  <section class="about-section" id="about">
-    <svg class="brand-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="50" cy="50" r="40" stroke="#c5a059"/>
-      <path d="M35 50 Q 50 30, 65 50 Q 50 70, 35 50" fill="#c5a059" opacity="0.3"/>
-    </svg>
-    <h2 class="about-title">Sobre la marca</h2>
-    <p class="about-text">
-      SAVÉLLE es una firma de moda de lujo concebida en Barranquilla por Michel Piñeres e Isabella Venegas. Nuestra visión rinde homenaje a la elegancia femenina atemporal mediante prendas minuciosamente confeccionadas, tejidos selectos y siluetas contemporáneas pensadas para trascender estaciones.
-    </p>
-    <a href="#collection" class="learn-more-btn">DESCUBRIR COLECCIÓN</a>
+  <!-- SECCIÓN FUNDADORAS (SIN BOTÓN DE COLECCIÓN) -->
+  <section class="founders-section" id="about">
+    <div class="founders-card" onclick="openStoryModal()">
+      <div class="founders-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Michel Piñeres e Isabella Venegas">
+      </div>
+      <h2 class="founders-title">Michel Piñeres & Isabella Venegas</h2>
+      <div class="founders-subtitle">Fundadoras & Directoras Creativas</div>
+      <p class="founders-brief">
+        "SAVÉLLE nace de la convicción de que la elegancia no es ostentación, sino el arte de la discreción y el detalle perfecto. Diseñamos para la mujer contemporánea que valora el lujo consciente y la autenticidad."
+      </p>
+      <span class="read-story-link">LEER HISTORIA COMPLETA</span>
+    </div>
   </section>
+
+  <!-- VISTA MODAL DISCURSO COMPLETO -->
+  <div class="story-modal" id="storyModal">
+    <button class="detail-close" onclick="closeStoryModal()">&times;</button>
+    <div class="story-container">
+      <h2>Michel Piñeres & Isabella Venegas</h2>
+      <div class="founders-subtitle">NUESTRA HISTORIA & MANIFIESTO</div>
+      <div class="founders-img-wrapper" style="max-width: 400px; aspect-ratio: 1/1; margin-top: 20px;">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Fundadoras SAVÉLLE">
+      </div>
+      <div class="story-full-text">
+        <p>Concebida en el corazón vibrante de Barranquilla, SAVÉLLE es el fruto de una visión compartida entre Michel Piñeres e Isabella Venegas. Nuestra firma nació no solo como una marca de moda, sino como una propuesta de vida orientada al *slow fashion* y al lujo atemporal.</p>
+        <br>
+        <p>Creemos apasionadamente en redefinir el vestuario femenino a través de piezas que combinan líneas minimalistas, tejidos de la más alta calidad y una confección impecable hecha por manos locales. Para nosotras, cada prenda debe contar una historia de sofisticación sin esfuerzo, pensada para trascender las tendencias efímeras y acompañar a la mujer moderna en cada faceta de su vida.</p>
+        <br>
+        <p>Agradecemos profundamente a cada persona que forma parte de este viaje y abraza nuestra visión de elegancia, autenticidad y pasión artesanal.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- COLLECTION SECTION -->
   <section class="collection-section" id="collection">
@@ -810,9 +889,7 @@
   <!-- PRODUCT DETAIL MODAL VIEW -->
   <div class="product-detail-modal" id="productDetailModal">
     <button class="detail-close" onclick="closeProductDetail()">&times;</button>
-    <div class="detail-container" id="detailContainer">
-      <!-- Se inyecta dinámicamente -->
-    </div>
+    <div class="detail-container" id="detailContainer"></div>
   </div>
 
   <!-- MADE IN BARRANQUILLA SECTION -->
@@ -845,7 +922,7 @@
       <div class="footer-col">
         <h4>Compañía</h4>
         <ul>
-          <li><a href="#about">Nuestra Historia</a></li>
+          <li><a href="#" onclick="openStoryModal()">Nuestra Historia</a></li>
           <li><a href="#collection">Lookbook</a></li>
           <li><a href="#" onclick="showToast('Términos & Privacidad SAVÉLLE')">Privacidad & Términos</a></li>
         </ul>
@@ -903,7 +980,7 @@
   <div class="toast-msg" id="toastMsg">Artículo agregado al carrito</div>
 
   <script>
-    // DATOS DE PRODUCTOS CON DETALLES Y MATERIALES
+    // DATOS DE PRODUCTOS
     const products = [
       { 
         id: 1, 
@@ -971,7 +1048,7 @@
     ];
 
     let cart = [];
-    let selectedSize = 'S'; // Talla por defecto
+    let selectedSize = 'S';
 
     // ELEMENTOS DOM
     const openMenuBtn = document.getElementById('openMenuBtn');
@@ -987,6 +1064,7 @@
     const closeCartBtn = document.getElementById('closeCartBtn');
     const cartDrawer = document.getElementById('cartDrawer');
     const productDetailModal = document.getElementById('productDetailModal');
+    const storyModal = document.getElementById('storyModal');
 
     // NAVEGACIÓN MENÚ LATERAL
     openMenuBtn.addEventListener('click', () => {
@@ -1006,6 +1084,7 @@
       closeDrawer();
       cartDrawer.classList.remove('active');
       closeProductDetail();
+      closeStoryModal();
     });
 
     openShopBtn.addEventListener('click', () => {
@@ -1017,6 +1096,17 @@
       shopSubPanel.classList.remove('active');
       mainNavPanel.style.display = 'block';
     });
+
+    // FUNCIONES DISCURSO COMPLETO FUNDADORAS
+    function openStoryModal() {
+      storyModal.classList.add('active');
+      drawerOverlay.classList.add('active');
+    }
+
+    function closeStoryModal() {
+      storyModal.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+    }
 
     // CARRUSEL FLUIDO TOUCH/SWIPE
     const track = document.getElementById('carouselTrack');
@@ -1107,7 +1197,7 @@
     function openProductDetail(productId) {
       const product = products.find(p => p.id === productId);
       const container = document.getElementById('detailContainer');
-      selectedSize = 'S'; // Reset por defecto
+      selectedSize = 'S';
 
       container.innerHTML = `
         <div class="detail-img-box">
@@ -1257,4 +1347,4 @@
     renderProducts(products);
   </script>
 </body>
-</html> 
+</html>
